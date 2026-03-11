@@ -1,0 +1,211 @@
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  /* Dark mode: push saturation up so purple/cyan glow vividly */
+  filter: saturate(1.5) contrast(1.1);
+}
+
+.bg-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-layer {
+  will-change: transform;
+}
+
+/* ──────────────────────────────────────────────
+   Hex rotation
+─────────────────────────────────────────────── */
+.hex-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 22s linear infinite;
+}
+.hex-spin-rev {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin-rev 30s linear infinite;
+}
+.hex-spin-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 42s linear infinite;
+}
+
+/* ──────────────────────────────────────────────
+   Node / particle floating — 8 distinct drifts
+─────────────────────────────────────────────── */
+.float-f1 {
+  animation: fa 7s ease-in-out infinite;
+}
+.float-f2 {
+  animation: fb 9s ease-in-out infinite;
+}
+.float-f3 {
+  animation: fc 11s ease-in-out infinite;
+}
+.float-f4 {
+  animation: fd 8s ease-in-out infinite;
+}
+.float-f5 {
+  animation: fa 12s ease-in-out infinite reverse;
+}
+.float-f6 {
+  animation: fb 6.5s ease-in-out infinite;
+}
+.float-f7 {
+  animation: fc 10s ease-in-out infinite reverse;
+}
+.float-f8 {
+  animation: fd 14s ease-in-out infinite;
+}
+
+/* ──────────────────────────────────────────────
+   Connection line opacity pulse
+─────────────────────────────────────────────── */
+.conn-1 {
+  animation: line-pulse 4s ease-in-out infinite;
+}
+.conn-2 {
+  animation: line-pulse 5.5s ease-in-out infinite 1.2s;
+}
+.conn-3 {
+  animation: line-pulse 7s ease-in-out infinite 2.5s;
+}
+
+/* ──────────────────────────────────────────────
+   Ambient glow breathe
+─────────────────────────────────────────────── */
+.glow-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+.glow-breathe-2 {
+  animation: breathe 6s ease-in-out infinite 2s;
+}
+.glow-breathe-slow {
+  animation: breathe 8s ease-in-out infinite 1s;
+}
+
+/* ──────────────────────────────────────────────
+   Keyframes
+─────────────────────────────────────────────── */
+@keyframes fa {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(8px, -12px);
+  }
+  66% {
+    transform: translate(-5px, 7px);
+  }
+}
+@keyframes fb {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-10px, 8px);
+  }
+  66% {
+    transform: translate(7px, -9px);
+  }
+}
+@keyframes fc {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(11px, 9px);
+  }
+}
+@keyframes fd {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-9px, -13px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-rev {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes line-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Light mode — multiply blend so colors appear
+   rich and vivid against the light background
+─────────────────────────────────────────────── */
+[data-theme="light"] .animated-bg {
+  filter: saturate(2) brightness(0.6) contrast(1.15);
+  opacity: 0.75;
+}
+
+/* ──────────────────────────────────────────────
+   Respect prefers-reduced-motion
+─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hex-spin,
+  .hex-spin-rev,
+  .hex-spin-slow,
+  .float-f1,
+  .float-f2,
+  .float-f3,
+  .float-f4,
+  .float-f5,
+  .float-f6,
+  .float-f7,
+  .float-f8,
+  .conn-1,
+  .conn-2,
+  .conn-3,
+  .glow-breathe,
+  .glow-breathe-2,
+  .glow-breathe-slow {
+    animation: none;
+  }
+  .bg-layer {
+    will-change: auto;
+  }
+}

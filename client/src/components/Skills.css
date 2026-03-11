@@ -1,0 +1,153 @@
+﻿/* ================================================
+   SKILLS — Mixed Bento Grid
+================================================ */
+
+.skills-header {
+  margin-bottom: 1.5rem;
+}
+
+.skills-bento {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--bento-gap);
+}
+
+/* Tile placement */
+.skills-tile-fullstack {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.skills-tile-ai {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.skills-tile-design {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.skills-tile-core {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+/* Tile eyebrow variants (base in index.css) */
+
+.tile-mono-label {
+  font-size: 0.74rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  margin: 0 0 1rem;
+}
+
+/* Full-Stack code window */
+.skills-tile-fullstack .code-window {
+  margin-top: 0.25rem;
+}
+
+/* AI Tools list */
+.skills-ai-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skills-ai-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-1);
+}
+
+.ai-bullet {
+  color: var(--cyan-light);
+  font-family: var(--mono);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.skills-ai-list code {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--cyan-light);
+}
+
+/* Design tag grid */
+.skills-tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-chip {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-border);
+  border-radius: 8px;
+  color: var(--text-1);
+}
+
+/* Core competencies */
+.core-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.core-chip {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  background: var(--emerald-dim);
+  border: 1px solid var(--emerald-border);
+  border-radius: 100px;
+  color: var(--text-1);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.core-chip:hover {
+  background: rgba(16, 185, 129, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .skills-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .skills-tile-fullstack {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .skills-tile-ai,
+  .skills-tile-design {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+  .skills-tile-core {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-bento {
+    grid-template-columns: 1fr;
+  }
+  .skills-tile-ai,
+  .skills-tile-design {
+    grid-column: 1;
+  }
+}

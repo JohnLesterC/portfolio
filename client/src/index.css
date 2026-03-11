@@ -1,0 +1,603 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
+
+:root {
+  /* Backgrounds */
+  --bg: #04040f;
+  --surface: #08081a;
+  --surface-2: #0e0e26;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(139, 92, 246, 0.45);
+
+  /* Accent — Violet */
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+  --accent-dim: rgba(139, 92, 246, 0.1);
+  --accent-border: rgba(139, 92, 246, 0.35);
+
+  /* Secondary — Cyan */
+  --cyan: #06b6d4;
+  --cyan-light: #67e8f9;
+  --cyan-dim: rgba(6, 182, 212, 0.1);
+
+  /* Tertiary — Amber */
+  --amber: #f59e0b;
+  --amber-dim: rgba(245, 158, 11, 0.1);
+  --amber-border: rgba(245, 158, 11, 0.35);
+
+  /* Emerald */
+  --emerald: #10b981;
+  --emerald-dim: rgba(16, 185, 129, 0.1);
+  --emerald-border: rgba(16, 185, 129, 0.35);
+
+  /* Rose */
+  --rose: #f43f5e;
+  --rose-dim: rgba(244, 63, 94, 0.1);
+  --rose-border: rgba(244, 63, 94, 0.35);
+
+  /* Text */
+  --text-1: #f1f5f9;
+  --text-2: #94a3b8;
+  --text-3: #475569;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+  --gradient-name: linear-gradient(
+    135deg,
+    #e2e8f0 10%,
+    #c4b5fd 55%,
+    #67e8f9 100%
+  );
+
+  /* Shadows */
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-accent: 0 8px 32px rgba(139, 92, 246, 0.2);
+  --shadow-hover: 0 16px 48px rgba(139, 92, 246, 0.15);
+
+  /* Bento System */
+  --bento-radius: 20px;
+  --bento-gap: 14px;
+  --mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: dark;
+  color: var(--text-1);
+  background-color: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+
+/* Shared section styles */
+.section {
+  padding: 7rem 2rem;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Frosted backing so animated SVG never bleeds into content */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(4, 4, 15, 0.55);
+  pointer-events: none;
+}
+
+[data-theme="light"] .section::before {
+  background: rgba(240, 241, 248, 0.85);
+}
+
+.section-alt {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 50%,
+    rgba(139, 92, 246, 0.04) 0%,
+    transparent 70%
+  );
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 100px;
+  background: var(--accent-dim);
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-1);
+  margin: 0 0 1rem;
+  letter-spacing: -0.75px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-2);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Selection */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: #f1f5f9;
+}
+
+/* ============================================
+   LIGHT THEME
+   Applied when <html data-theme="light">
+============================================ */
+[data-theme="light"] {
+  /* Backgrounds — warm lavender-tinted light gray (inspired by Linear) */
+  --bg: #f0f1f8;
+  --surface: #ffffff;
+  --surface-2: #e8eaf2;
+
+  /* Borders — clearly visible to define tile edges */
+  --border: rgba(15, 23, 42, 0.12);
+  --border-hover: rgba(109, 40, 217, 0.5);
+
+  /* Accent — Violet */
+  --accent: #6d28d9;
+  --accent-light: #7c3aed;
+  --accent-dim: rgba(109, 40, 217, 0.08);
+  --accent-border: rgba(109, 40, 217, 0.25);
+
+  /* Cyan */
+  --cyan: #0284c7;
+  --cyan-light: #0ea5e9;
+  --cyan-dim: rgba(2, 132, 199, 0.08);
+
+  /* Amber */
+  --amber: #b45309;
+  --amber-dim: rgba(180, 83, 9, 0.08);
+  --amber-border: rgba(180, 83, 9, 0.25);
+
+  /* Emerald */
+  --emerald: #047857;
+  --emerald-dim: rgba(4, 120, 87, 0.08);
+  --emerald-border: rgba(4, 120, 87, 0.25);
+
+  /* Text */
+  --text-1: #0f172a;
+  --text-2: #374151;
+  --text-3: #6b7280;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #6d28d9 0%, #0284c7 100%);
+  --gradient-name: linear-gradient(
+    135deg,
+    #1e293b 10%,
+    #6d28d9 55%,
+    #0284c7 100%
+  );
+
+  /* Shadows — strong enough to lift tiles off the background */
+  --shadow-md:
+    0 2px 12px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-accent: 0 8px 32px rgba(109, 40, 217, 0.18);
+  --shadow-hover:
+    0 12px 40px rgba(109, 40, 217, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+
+  color-scheme: light;
+  color: var(--text-1);
+  background-color: var(--bg);
+}
+
+[data-theme="light"] body {
+  background: var(--bg);
+}
+
+/* Light mode scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.35);
+}
+
+/* Light mode section-alt */
+[data-theme="light"] .section-alt {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 50%,
+    rgba(124, 58, 237, 0.04) 0%,
+    transparent 70%
+  );
+}
+[data-theme="light"] .section-alt::before {
+  background: rgba(232, 234, 242, 0.9);
+}
+
+/* Light mode hero glows — softer */
+[data-theme="light"] .glow-1 {
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.12) 0%,
+    transparent 70%
+  );
+}
+[data-theme="light"] .glow-2 {
+  background: radial-gradient(
+    circle,
+    rgba(8, 145, 178, 0.1) 0%,
+    transparent 70%
+  );
+}
+[data-theme="light"] .hero::before {
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.07) 0%,
+    transparent 70%
+  );
+}
+[data-theme="light"] .hero-grid {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
+}
+
+/* Light mode navbar pill */
+[data-theme="light"] .navbar.scrolled .nav-container {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(124, 58, 237, 0.06);
+}
+
+/* Light mode mobile nav overlay */
+[data-theme="light"] .nav-links {
+  background: rgba(248, 250, 252, 0.97);
+}
+
+/* Light mode footer */
+[data-theme="light"] .footer {
+  background: #e8eaf2;
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+/* Theme toggle button transition */
+html {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Shared keyframes */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+/* ============================================
+   BENTO SYSTEM — shared tile + button styles
+============================================ */
+
+.bento-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--bento-radius);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bento-tile:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Code window block */
+.code-window {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Light mode: keep code windows dark — SaaS convention (Linear / Stripe) */
+[data-theme="light"] .code-window {
+  background: #1a2035;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="light"] .code-window-bar {
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Code text must stay light on the dark code-window background */
+[data-theme="light"] .win-filename {
+  color: #64748b;
+}
+[data-theme="light"] .code-body {
+  color: #94a3b8;
+}
+[data-theme="light"] .code-kw {
+  color: #a78bfa;
+}
+[data-theme="light"] .code-str {
+  color: #67e8f9;
+}
+[data-theme="light"] .code-key {
+  color: #e2e8f0;
+}
+[data-theme="light"] .code-cmt {
+  color: #475569;
+}
+
+.code-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border);
+}
+
+.win-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.win-dot.red {
+  background: #ff5f57;
+}
+.win-dot.yellow {
+  background: #febc2e;
+}
+.win-dot.green {
+  background: #28c840;
+}
+
+.win-filename {
+  margin-left: 0.5rem;
+  font-size: 0.74rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+}
+
+.code-body {
+  padding: 1.25rem;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--text-2);
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.code-body code {
+  font-family: inherit;
+}
+
+/* Syntax highlight helpers */
+.code-kw {
+  color: var(--accent-light);
+}
+.code-str {
+  color: var(--cyan-light);
+}
+.code-key {
+  color: var(--text-1);
+}
+.code-cmt {
+  color: var(--text-3);
+  font-style: italic;
+}
+
+/* Shared Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.4rem;
+  background: transparent;
+  color: var(--text-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    transform 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--border-hover);
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+/* Section pill (inline label) */
+.section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent-light);
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 100px;
+  background: var(--accent-dim);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+/* Shared bento section title */
+.bento-section-title {
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: var(--text-1);
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+/* Tile eyebrow label */
+.tile-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin: 0 0 1rem;
+}
+.tile-eyebrow-cyan {
+  color: var(--cyan-light);
+}
+.tile-eyebrow-amber {
+  color: var(--amber);
+}
+.tile-eyebrow-emerald {
+  color: var(--emerald);
+}
+
+/* ============================================
+   RESPONSIVE — shared utilities
+============================================ */
+@media (max-width: 900px) {
+  .section {
+    padding: 5rem 1.5rem;
+  }
+  .section-header {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 6vw, 2rem);
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3.5rem 1rem;
+  }
+}

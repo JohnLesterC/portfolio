@@ -1,0 +1,84 @@
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient separator glow at top */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* Subtle background glow */
+.footer::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 200px;
+  background: radial-gradient(
+    ellipse,
+    rgba(139, 92, 246, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-1);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: var(--text-3);
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.footer-links a {
+  color: var(--text-3);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--accent-light);
+}
+
+.accent {
+  color: var(--accent);
+}

@@ -15,6 +15,7 @@ portfolio/
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js
 - MongoDB
 - npm or yarn
@@ -22,17 +23,20 @@ portfolio/
 ### Installation
 
 1. Clone the repo
+
    ```bash
    git clone https://github.com/your-username/portfolio.git
    ```
 
 2. Install server dependencies
+
    ```bash
    cd server
    npm install
    ```
 
 3. Install client dependencies
+
    ```bash
    cd client
    npm install

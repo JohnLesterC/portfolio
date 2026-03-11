@@ -1,0 +1,99 @@
+﻿/* ================================================
+   EDUCATION — Bento Timeline
+================================================ */
+
+.education-header {
+  margin-bottom: 1.5rem;
+}
+
+.edu-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--bento-gap);
+}
+
+.edu-tile {
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.edu-tile:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.edu-tile.edu-tile-active {
+  border-color: var(--accent-border);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(139,92,246,0.06) 100%);
+}
+
+.edu-tile-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.edu-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--text-3);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.edu-dot.edu-dot-active {
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+
+.edu-period {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  margin-right: auto;
+}
+
+.edu-status-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--mono);
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+  background: var(--accent-dim);
+  color: var(--accent-light);
+  border: 1px solid var(--accent-border);
+}
+
+.edu-degree {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0 0 0.4rem;
+  line-height: 1.35;
+}
+
+.edu-school {
+  font-size: 0.78rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  margin: 0 0 0.6rem;
+}
+
+.edu-note {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .edu-bento {
+    grid-template-columns: 1fr;
+  }
+}

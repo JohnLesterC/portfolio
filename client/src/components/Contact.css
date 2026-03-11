@@ -1,0 +1,199 @@
+﻿/* ================================================
+   CONTACT — Bento Split Layout
+================================================ */
+
+.contact-header {
+  margin-bottom: 1.5rem;
+}
+
+.contact-bento {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--bento-gap);
+  align-items: start;
+}
+
+/* ── Info column ── */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bento-gap);
+}
+
+.contact-intro-tile {
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    rgba(139, 92, 246, 0.06) 100%
+  );
+}
+
+.contact-intro-text {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin: 0.5rem 0 0;
+}
+
+.contact-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--bento-gap);
+}
+
+.contact-item-tile {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  color: var(--accent-light);
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.contact-item-label {
+  display: block;
+  font-size: 0.68rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  letter-spacing: 0.5px;
+}
+
+.contact-item-value {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-1);
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+a.contact-item-value {
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a.contact-item-value:hover {
+  color: var(--accent-light);
+}
+
+/* ── Form tile ── */
+.contact-form-tile {
+  /* inherits bento-tile */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.form-group input,
+.form-group textarea {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.88rem;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  color: var(--text-1);
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  resize: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-3);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.contact-submit {
+  align-self: flex-start;
+}
+
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-feedback {
+  font-size: 0.84rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.form-feedback.success {
+  background: var(--emerald-dim);
+  border: 1px solid var(--emerald-border);
+  color: var(--emerald);
+}
+
+.form-feedback.error {
+  background: var(--rose-dim);
+  border: 1px solid var(--rose-border);
+  color: var(--rose);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .contact-bento {
+    grid-template-columns: 1fr;
+  }
+  .contact-items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .contact-items-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-items-grid {
+    grid-template-columns: 1fr;
+  }
+}

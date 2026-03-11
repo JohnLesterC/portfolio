@@ -1,0 +1,174 @@
+﻿/* ================================================
+   EXPERIENCE — Feature Tile
+================================================ */
+
+.experience-header {
+  margin-bottom: 1.5rem;
+}
+
+.experience-bento {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--bento-gap);
+  align-items: start;
+}
+
+/* Main tile */
+.exp-main-tile {
+  padding: 0;
+  overflow: visible;
+  display: flex;
+}
+
+.exp-accent-bar {
+  width: 3px;
+  min-height: 100%;
+  background: var(--gradient-brand);
+  border-radius: 3px 0 0 3px;
+  flex-shrink: 0;
+}
+
+.exp-content {
+  padding: 1.75rem;
+  flex: 1;
+}
+
+.exp-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.exp-company {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--text-1);
+  margin: 0 0 0.25rem;
+  letter-spacing: -1px;
+}
+
+.exp-role {
+  font-size: 0.85rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  margin: 0;
+}
+
+.exp-status-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--mono);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: var(--emerald-dim);
+  color: var(--emerald);
+  border: 1px solid var(--emerald-border);
+  flex-shrink: 0;
+}
+
+.exp-code {
+  margin-bottom: 1.5rem;
+}
+
+/* Highlights list */
+.exp-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exp-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.highlight-arrow {
+  color: var(--accent-light);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Side column */
+.exp-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bento-gap);
+}
+
+.exp-side-tile {
+  /* inherits bento-tile */
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.exp-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  color: var(--text-1);
+}
+
+.exp-side-quote {
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(139,92,246,0.06) 100%);
+}
+
+.exp-quote-label {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  margin: 0 0 0.5rem;
+}
+
+.exp-quote-text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-1);
+  margin: 0;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .experience-bento {
+    grid-template-columns: 1fr;
+  }
+  .exp-side-col {
+    flex-direction: row;
+  }
+  .exp-side-tile {
+    flex: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .exp-side-col {
+    flex-direction: column;
+  }
+  .exp-top {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
