@@ -15,22 +15,29 @@ export default function Vision() {
         </div>
 
         <div className="vision-bento">
-
           {/* Cinematic photo card */}
           <div className="vision-photo-card">
             <div className="vision-photo-glow" />
-            <img src={lesterPhoto} alt="John Lester Camit" className="vision-photo" />
+            <img
+              src={lesterPhoto}
+              alt="John Lester Camit"
+              className="vision-photo"
+            />
             <div className="vision-photo-overlay" />
             <div className="vision-name-badge">
               <span className="vision-name">John Lester Camit</span>
-              <span className="vision-title-badge">Developer &amp; AI Advocate</span>
+              <span className="vision-title-badge">
+                Developer &amp; AI Advocate
+              </span>
             </div>
           </div>
 
           {/* Manifesto panel */}
           <div className="vision-manifesto">
             <div className="vision-deco-quote">&ldquo;</div>
-            <p className="vision-eyebrow">// a fresh graduate&apos;s perspective</p>
+            <p className="vision-eyebrow">
+              // a fresh graduate&apos;s perspective
+            </p>
             <h3 className="vision-headline">
               AI will never replace the people who{" "}
               <em className="vision-em">master</em> it.
@@ -53,11 +60,11 @@ export default function Vision() {
                 <span className="belief-num">02</span>
                 <p className="belief-text">
                   The real edge belongs to the person{" "}
-                  <span className="vision-highlight">behind</span> the tool — the
-                  one who defines the{" "}
+                  <span className="vision-highlight">behind</span> the tool —
+                  the one who defines the{" "}
                   <span className="vision-highlight">idea</span>, shapes the{" "}
-                  <span className="vision-highlight">direction</span>, and decides
-                  what the world wants to see.
+                  <span className="vision-highlight">direction</span>, and
+                  decides what the world wants to see.
                 </p>
               </div>
               <div className="vision-belief">
@@ -75,7 +82,6 @@ export default function Vision() {
               <span className="vision-tag">Full-Stack Engineering</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
