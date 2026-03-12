@@ -10,16 +10,16 @@ const roles = [
   },
   {
     title: "Academic Committee Member",
-    org: "City College of Calamba",
+    org: "Academic Organization — City College of Calamba",
     period: "2024 – 2025",
-    desc: "Assisted in planning academic events and managing student academic affairs.",
+    desc: "Assisted in planning academic events and managing student academic affairs within the college's academic organization.",
     ongoing: false,
   },
   {
     title: "Social Media Manager",
-    org: "City College of Calamba",
+    org: "Academic Organization — City College of Calamba",
     period: "2023 – 2024",
-    desc: "Managed official class social media accounts; created content for announcements.",
+    desc: "Managed the academic organization's social media presence; created and scheduled content for announcements and events.",
     ongoing: false,
   },
   {

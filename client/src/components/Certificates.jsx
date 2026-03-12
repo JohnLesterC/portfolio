@@ -29,6 +29,13 @@ const certs = [
     credentialId: "ez9tv8nsowys",
     url: "https://www.credential.net/ez9tv8nsowys",
   },
+  {
+    title: "Introduction to Agent Skills",
+    issuer: "Anthropic",
+    date: "March 2026",
+    credentialId: "euko9vifsf4v",
+    url: "https://www.credential.net/euko9vifsf4v",
+  },
 ];
 
 export default function Certificates() {

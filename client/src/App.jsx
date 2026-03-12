@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Certificates from "./components/Certificates";
 import Leadership from "./components/Leadership";
+import Vision from "./components/Vision";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -83,6 +84,7 @@ function App() {
         <Experience />
         <Certificates />
         <Leadership />
+        <Vision />
         <Contact />
       </main>
       <Footer />

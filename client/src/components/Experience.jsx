@@ -1,10 +1,12 @@
 ﻿import "./Experience.css";
 
 const highlights = [
-  "Contributed to software architecture decisions for a multi-module web platform",
-  "Built SEO backlink structures to improve organic search performance",
+  "Performed QA testing — identified bugs, wrote test cases, and validated fixes across features",
+  "Developed full-stack MERN features and contributed to software architecture decisions",
+  "Designed system architecture documents and technical diagrams for a multi-module web platform",
+  "Authored technical articles and documentation as an in-house Technical Consultant",
   "Fixed UI inconsistencies and enhanced component accessibility in Wix Studio",
-  "Collaborated with the Creatives team on design and content production",
+  "Built SEO backlink structures to improve organic search performance",
 ];
 
 export default function Experience() {
@@ -23,7 +25,7 @@ export default function Experience() {
                 <div>
                   <h3 className="exp-company">FiLDEV</h3>
                   <p className="exp-role">
-                    Intern &mdash; Development &amp; Creatives
+                    Intern &mdash; Development, QA &amp; Technical Consultant
                   </p>
                 </div>
                 <span className="exp-status-badge">Completed</span>
@@ -38,8 +40,9 @@ export default function Experience() {
                 <pre className="code-body">
                   <code>{`const internship = {
   company:  "FiLDEV",
-  role:     "Development & Creatives Intern",
-  focus:    ["Web Dev", "SEO", "UI/UX", "Accessibility"],
+  role:     "Dev, QA & Technical Consultant",
+  focus:    ["MERN Stack", "QA Testing", "System Design",
+             "Documentation", "Tech Articles"],
   platform: "Wix Studio",
 }`}</code>
                 </pre>
@@ -59,12 +62,15 @@ export default function Experience() {
               <p className="tile-eyebrow">Focus Areas</p>
               <div className="exp-tags">
                 {[
-                  "Web Dev",
-                  "SEO",
-                  "UI Fixes",
-                  "Accessibility",
+                  "MERN Stack",
+                  "QA Testing",
+                  "System Design",
+                  "Documentation",
+                  "Tech Articles",
+                  "Software Architecture",
                   "Wix Studio",
-                  "Creatives",
+                  "SEO",
+                  "Accessibility",
                 ].map((t) => (
                   <span key={t} className="exp-tag">
                     {t}
