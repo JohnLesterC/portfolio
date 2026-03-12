@@ -1,4 +1,6 @@
 ﻿import "./Education.css";
+import cccLogo from "../assets/ccc.avif";
+import makilingLogo from "../assets/makiling.avif";
 
 const schools = [
   {
@@ -8,6 +10,7 @@ const schools = [
     period: "2022 – 2026",
     note: "Graduate",
     active: false,
+    logo: cccLogo,
   },
   {
     degree: "Senior High School",
@@ -16,6 +19,7 @@ const schools = [
     period: "2016 – 2022",
     note: null,
     active: false,
+    logo: makilingLogo,
   },
   {
     degree: "Elementary Education",
@@ -24,6 +28,7 @@ const schools = [
     period: "2010 – 2016",
     note: null,
     active: false,
+    logo: null,
   },
 ];
 
@@ -31,16 +36,19 @@ export default function Education() {
   return (
     <section className="section" id="education">
       <div className="container">
-        <div className="edu-header">
+        <div className="education-header">
           <span className="section-pill">// education</span>
           <h2 className="bento-section-title">Education</h2>
         </div>
-        <div className="edu-grid">
+        <div className="edu-bento">
           {schools.map((s) => (
             <div
               key={s.abbr}
               className={`bento-tile edu-tile${s.active ? " edu-tile-active" : ""}`}
             >
+              {s.logo && (
+                <img src={s.logo} alt={s.school} className="edu-logo" />
+              )}
               {s.active && (
                 <div className="edu-status-row">
                   <span className="edu-dot edu-dot-active" />

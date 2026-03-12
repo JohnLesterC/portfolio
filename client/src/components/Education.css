@@ -12,8 +12,21 @@
   gap: var(--bento-gap);
 }
 
+.edu-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px;
+}
+
 .edu-tile {
-  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s;
 }
 
 .edu-tile:hover {
@@ -24,7 +37,11 @@
 
 .edu-tile.edu-tile-active {
   border-color: var(--accent-border);
-  background: linear-gradient(135deg, var(--surface) 0%, rgba(139,92,246,0.06) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    rgba(139, 92, 246, 0.06) 100%
+  );
 }
 
 .edu-tile-top {
