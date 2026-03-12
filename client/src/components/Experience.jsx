@@ -28,7 +28,7 @@ export default function Experience() {
                     Intern &mdash; Development, QA &amp; Technical Consultant
                   </p>
                 </div>
-                <span className="exp-status-badge">Completed</span>
+                <span className="exp-status-badge">Ongoing</span>
               </div>
               <div className="code-window exp-code">
                 <div className="code-window-bar">
