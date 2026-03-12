@@ -15,51 +15,67 @@ export default function Vision() {
         </div>
 
         <div className="vision-bento">
-          {/* Photo tile */}
-          <div className="vision-photo-wrap">
+
+          {/* Cinematic photo card */}
+          <div className="vision-photo-card">
             <div className="vision-photo-glow" />
-            <img
-              src={lesterPhoto}
-              alt="John Lester Camit"
-              className="vision-photo"
-            />
-            <div className="vision-photo-frame" />
+            <img src={lesterPhoto} alt="John Lester Camit" className="vision-photo" />
+            <div className="vision-photo-overlay" />
+            <div className="vision-name-badge">
+              <span className="vision-name">John Lester Camit</span>
+              <span className="vision-title-badge">Developer &amp; AI Advocate</span>
+            </div>
           </div>
 
-          {/* Statement tile */}
-          <div className="bento-tile vision-statement-tile">
-            <p className="vision-eyebrow">// a fresh graduate's perspective</p>
-
-            <blockquote className="vision-quote">
-              "AI will never replace the people who{" "}
-              <span className="vision-highlight">master</span> it."
-            </blockquote>
-
-            <p className="vision-body">
-              In a rapidly evolving IT landscape, the conversation around AI
-              replacing jobs is louder than ever. As a fresh graduate, I don't
-              fear that shift — I <strong>embrace it with clarity</strong>.
-            </p>
-            <p className="vision-body">
-              We can't stop AI from becoming part of everyday work, nor should
-              we. But the real edge belongs to the person behind it — the one
-              who defines the <span className="vision-highlight">idea</span>,
-              shapes the <span className="vision-highlight">direction</span>,
-              and decides what the world actually wants to{" "}
-              <span className="vision-highlight">see and experience</span>.
-            </p>
-            <p className="vision-body">
-              My pursuit is simple: become the kind of developer who wields AI
-              as a precision tool — not a crutch — and builds things that
-              genuinely matter.
-            </p>
-
+          {/* Manifesto panel */}
+          <div className="vision-manifesto">
+            <div className="vision-deco-quote">&ldquo;</div>
+            <p className="vision-eyebrow">// a fresh graduate&apos;s perspective</p>
+            <h3 className="vision-headline">
+              AI will never replace the people who{" "}
+              <em className="vision-em">master</em> it.
+            </h3>
+            <div className="vision-divider">
+              <span className="vision-divider-dot" />
+              <span className="vision-divider-dot" />
+              <span className="vision-divider-dot" />
+            </div>
+            <div className="vision-beliefs">
+              <div className="vision-belief">
+                <span className="belief-num">01</span>
+                <p className="belief-text">
+                  The conversation around AI replacing jobs is louder than ever.
+                  As a fresh graduate, I don&apos;t fear that shift —{" "}
+                  <strong>I embrace it with clarity.</strong>
+                </p>
+              </div>
+              <div className="vision-belief">
+                <span className="belief-num">02</span>
+                <p className="belief-text">
+                  The real edge belongs to the person{" "}
+                  <span className="vision-highlight">behind</span> the tool — the
+                  one who defines the{" "}
+                  <span className="vision-highlight">idea</span>, shapes the{" "}
+                  <span className="vision-highlight">direction</span>, and decides
+                  what the world wants to see.
+                </p>
+              </div>
+              <div className="vision-belief">
+                <span className="belief-num">03</span>
+                <p className="belief-text">
+                  My pursuit: become the developer who wields AI as a precision
+                  tool — not a crutch — and builds things that{" "}
+                  <span className="vision-highlight">genuinely matter.</span>
+                </p>
+              </div>
+            </div>
             <div className="vision-tags">
               <span className="vision-tag">AI-Augmented Dev</span>
               <span className="vision-tag">Human-First Thinking</span>
               <span className="vision-tag">Full-Stack Engineering</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>
