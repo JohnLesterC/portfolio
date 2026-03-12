@@ -11,13 +11,16 @@
   grid-template-columns: 2fr 1fr;
   gap: var(--bento-gap);
   align-items: start;
+  /* Prevent grid children from overflowing their tracks */
+  min-width: 0;
 }
 
 /* Main tile */
 .exp-main-tile {
   padding: 0;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
+  min-width: 0;
 }
 
 .exp-accent-bar {
@@ -31,6 +34,8 @@
 .exp-content {
   padding: 1.75rem;
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .exp-top {
@@ -170,5 +175,11 @@
   .exp-top {
     flex-direction: column;
     gap: 0.75rem;
+  }
+  .exp-content {
+    padding: 1.25rem;
+  }
+  .exp-company {
+    font-size: 1.4rem;
   }
 }
