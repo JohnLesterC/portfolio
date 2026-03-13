@@ -27,7 +27,7 @@ export default function Vision() {
             <div className="vision-name-badge">
               <span className="vision-name">John Lester Camit</span>
               <span className="vision-title-badge">
-                Developer &amp; AI Advocate
+                Developer &amp; AI Enthusiast
               </span>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function Vision() {
                 <p className="belief-text">
                   The conversation around AI replacing jobs is louder than ever.
                   As a fresh graduate, I don&apos;t fear that shift —{" "}
-                  <strong>I embrace it with clarity.</strong>
+                  <strong>I find it genuinely fascinating.</strong>
                 </p>
               </div>
               <div className="vision-belief">
@@ -77,7 +77,7 @@ export default function Vision() {
               </div>
             </div>
             <div className="vision-tags">
-              <span className="vision-tag">AI-Augmented Dev</span>
+              <span className="vision-tag">AI-Curious Dev</span>
               <span className="vision-tag">Human-First Thinking</span>
               <span className="vision-tag">Full-Stack Engineering</span>
             </div>
