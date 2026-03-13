@@ -46,6 +46,10 @@
   gap: 1rem;
 }
 
+.exp-top > div {
+  min-width: 0;
+}
+
 .exp-company {
   font-size: 1.75rem;
   font-weight: 900;
@@ -59,6 +63,7 @@
   font-family: var(--mono);
   color: var(--text-3);
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .exp-status-badge {
@@ -77,6 +82,15 @@
 
 .exp-code {
   margin-bottom: 1.5rem;
+}
+
+.exp-code .code-window-bar {
+  flex-wrap: wrap;
+}
+
+.exp-code .win-filename {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 /* Highlights list */
@@ -185,5 +199,10 @@
   }
   .exp-company {
     font-size: 1.4rem;
+  }
+  .exp-role,
+  .exp-highlights li,
+  .exp-code .code-body {
+    font-size: 0.8rem;
   }
 }
