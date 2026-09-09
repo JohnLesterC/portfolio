@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://johnlesterc.github.io/portfolio/sitemap.xml
