@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import "./Contact.css";
 
 const contactItems = [
@@ -141,7 +141,7 @@ export default function Contact() {
                       target={
                         item.href.startsWith("http") ? "_blank" : undefined
                       }
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                     >
                       {item.value}
                     </a>

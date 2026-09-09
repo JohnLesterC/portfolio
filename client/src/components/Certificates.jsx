@@ -1,4 +1,4 @@
-﻿import "./Certificates.css";
+import "./Certificates.css";
 
 const certs = [
   {
@@ -52,7 +52,7 @@ export default function Certificates() {
               key={c.credentialId}
               href={c.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="bento-tile cert-tile"
             >
               <div className="cert-issuer-row">

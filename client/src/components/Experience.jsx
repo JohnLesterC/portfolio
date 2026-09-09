@@ -1,12 +1,12 @@
-﻿import "./Experience.css";
+import "./Experience.css";
 
 const highlights = [
   "Performed QA testing — identified bugs, wrote test cases, and validated fixes across features",
   "Developed full-stack MERN features and contributed to software architecture decisions",
   "Designed system architecture documents and technical diagrams for a multi-module web platform",
   "Authored technical articles and documentation as an in-house Technical Consultant",
-  "Fixed UI inconsistencies and enhanced component accessibility in Wix Studio",
-  "Built SEO backlink structures to improve organic search performance",
+  "Fixed UI inconsistencies and enhanced component accessibility in Wix Studio. Built SEO backlink structures to improve organic search performance",
+  "WordPress Development — maintained and customized web components",
 ];
 
 export default function Experience() {
@@ -23,12 +23,12 @@ export default function Experience() {
             <div className="exp-content">
               <div className="exp-top">
                 <div>
-                  <h3 className="exp-company">FiLDEV</h3>
+                  <h3 className="exp-company">FiLDEV Cloud Business and Software</h3>
                   <p className="exp-role">
                     Intern &mdash; Development, QA &amp; Technical Consultant
                   </p>
                 </div>
-                <span className="exp-status-badge">Ongoing</span>
+                <span className="exp-status-badge">Dec 2025 – Apr 2026</span>
               </div>
               <div className="code-window exp-code">
                 <div className="code-window-bar">
@@ -39,11 +39,12 @@ export default function Experience() {
                 </div>
                 <pre className="code-body">
                   <code>{`const internship = {
-  company:  "FiLDEV",
-  role:     "Dev, QA & Technical Consultant",
-  focus:    ["MERN Stack", "QA Testing", "System Design",
-             "Documentation", "Tech Articles"],
-  platform: "Wix Studio",
+  company:   "FiLDEV Cloud Business and Software",
+  role:      "Dev, QA & Technical Consultant",
+  period:    "Dec 2025 – Apr 2026",
+  focus:     ["MERN Stack", "QA Testing", "System Design",
+              "Documentation", "SEO & Backlinks"],
+  platforms: ["Wix Studio", "WordPress"],
 }`}</code>
                 </pre>
               </div>
@@ -69,7 +70,8 @@ export default function Experience() {
                   "Tech Articles",
                   "Software Architecture",
                   "Wix Studio",
-                  "SEO",
+                  "WordPress",
+                  "SEO & Backlinks",
                   "Accessibility",
                 ].map((t) => (
                   <span key={t} className="exp-tag">

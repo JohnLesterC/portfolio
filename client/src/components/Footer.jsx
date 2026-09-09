@@ -15,14 +15,14 @@ export default function Footer() {
           <a
             href="https://github.com/JohnLesterC"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             GitHub
           </a>
           <a
             href="https://www.linkedin.com/in/john-lester-camit"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             LinkedIn
           </a>
