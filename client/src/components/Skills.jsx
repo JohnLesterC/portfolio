@@ -1,20 +1,37 @@
-﻿import "./Skills.css";
+import "./Skills.css";
 
-const aiTools = ["ChatGPT", "Grok", "Claude", "Blackbox AI"];
+const aiTools = [
+  "Claude",
+  "ChatGPT",
+  "Gemini",
+  "Grok",
+  "Copilot",
+  "NotebookLM",
+  "Cursor",
+  "Blackbox",
+];
+
 const designTools = [
+  "Kajabi",
+  "Squarespace",
+  "Wix Studio",
+  "WordPress",
+  "VS Code",
   "Canva",
   "Photoshop",
   "GIMP",
-  "VS Code",
-  "Postman",
-  "Wix Studio",
-  "WordPress",
+  "Jira",
+  "Slack",
 ];
+
 const coreSkills = [
+  "SEO Optimization",
+  "Google Search Console",
+  "Google Analytics",
+  "QA Testing",
   "Project Management",
   "Leadership",
   "Event Planning",
-  "Communication",
   "Social Media",
 ];
 

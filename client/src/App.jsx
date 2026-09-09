@@ -71,9 +71,9 @@ function App() {
               </div>
 
               <div className="bento-tile about-intern-tile">
-                <p className="tile-eyebrow tile-eyebrow-amber">Internship</p>
-                <p className="about-intern-company">FiLDEV Cloud Business and Software</p>
-                <p className="about-intern-role">Full-Stack Dev, QA &amp; Tech Consultant</p>
+                <p className="tile-eyebrow tile-eyebrow-amber">Experience</p>
+                <p className="about-intern-company">Freelance Web Dev &amp; VA</p>
+                <p className="about-intern-role">International Clients &middot; FiLDEV Alum</p>
               </div>
             </div>
           </div>

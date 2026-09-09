@@ -1,32 +1,32 @@
-﻿import "./Leadership.css";
+import "./Leadership.css";
 
 const roles = [
   {
     title: "Class Representative",
-    org: "City College of Calamba",
-    period: "2022 – 2026",
-    desc: "Liaison between students and faculty; coordinates class concerns and academic logistics.",
-    ongoing: false,
+    org: "Information Technology Society",
+    period: "2025 – 2026",
+    desc: "Serve as liaison for the student section, supporting planning and organization of departmental initiatives.",
+    ongoing: true,
   },
   {
     title: "Academic Committee Member",
-    org: "Academic Organization — City College of Calamba",
+    org: "Information Technology Society",
     period: "2024 – 2025",
-    desc: "Assisted in planning academic events and managing student academic affairs within the college's academic organization.",
+    desc: "Coordinated guest speakers, secured venues, and developed event timelines for academic programs.",
     ongoing: false,
   },
   {
     title: "Social Media Manager",
-    org: "Academic Organization — City College of Calamba",
+    org: "Information Technology Society",
     period: "2023 – 2024",
-    desc: "Managed the academic organization's social media presence; created and scheduled content for announcements and events.",
+    desc: "Managed the official Facebook page, scheduling content to boost student engagement and event awareness.",
     ongoing: false,
   },
   {
     title: "Class Auditor – NSTP",
     org: "National Service Training Program",
     period: "2022 – 2023",
-    desc: "Oversaw attendance and records for NSTP activities and community service logs.",
+    desc: "Oversaw attendance, records, and logistics for NSTP activities and community service projects.",
     ongoing: false,
   },
 ];

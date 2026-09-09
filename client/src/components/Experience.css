@@ -1,9 +1,41 @@
-﻿/* ================================================
+/* ================================================
    EXPERIENCE — Feature Tile
 ================================================ */
 
 .experience-header {
+  margin-bottom: 1.25rem;
+}
+
+.exp-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin-bottom: 1.5rem;
+}
+
+.exp-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exp-tab:hover {
+  border-color: var(--accent);
+  color: var(--text-1);
+}
+
+.exp-tab.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent-light);
+  box-shadow: 0 0 16px var(--accent-dim);
 }
 
 .experience-bento {
