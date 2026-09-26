@@ -184,6 +184,7 @@ const newestFirstProjects = [...projects].sort((first, second) => {
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [galleryIndexes, setGalleryIndexes] = useState({});
   const featuredProjects = newestFirstProjects.filter((project) =>
     [12, 11, 10].includes(project.id),
   );
@@ -210,23 +211,50 @@ export default function Projects() {
           <span className="project-year">{project.period}</span>
         </div>
 
-        {project.images ? (
+        {project.images ? (() => {
+          const galleryIndex = galleryIndexes[project.id] ?? 0;
+          const galleryImage = project.images[galleryIndex];
+          const changeGalleryImage = (direction) => {
+            const nextIndex =
+              (galleryIndex + direction + project.images.length) % project.images.length;
+            setGalleryIndexes((current) => ({ ...current, [project.id]: nextIndex }));
+          };
+
+          return (
           <div className="project-gallery">
-            <button
-              type="button"
-              className="project-gallery-main"
-              onClick={() => setSelectedImage({ src: project.images[0], name: project.name })}
-              aria-label={`View larger ${project.name} preview`}
-            >
-              <img src={project.images[0]} alt={`${project.name} main preview`} />
-            </button>
+            <div className="project-gallery-main">
+              <button
+                type="button"
+                className="gallery-image-button"
+                onClick={() => setSelectedImage({ src: galleryImage, name: project.name })}
+                aria-label={`View larger ${project.name} preview`}
+              >
+                <img src={galleryImage} alt={`${project.name} screen ${galleryIndex + 1}`} />
+              </button>
+              <button
+                type="button"
+                className="gallery-arrow gallery-arrow-left"
+                onClick={() => changeGalleryImage(-1)}
+                aria-label={`Show previous ${project.name} screenshot`}
+              >
+                &#8592;
+              </button>
+              <button
+                type="button"
+                className="gallery-arrow gallery-arrow-right"
+                onClick={() => changeGalleryImage(1)}
+                aria-label={`Show next ${project.name} screenshot`}
+              >
+                &#8594;
+              </button>
+            </div>
             <div className="project-gallery-strip">
               {project.images.map((image, index) => (
                 <button
                   key={image}
                   type="button"
-                  className={index === 0 ? "active" : ""}
-                  onClick={() => setSelectedImage({ src: image, name: project.name })}
+                  className={index === galleryIndex ? "active" : ""}
+                  onClick={() => setGalleryIndexes((current) => ({ ...current, [project.id]: index }))}
                   aria-label={`View ${project.name} screen ${index + 1}`}
                 >
                   <img src={image} alt={`${project.name} screen ${index + 1}`} />
@@ -234,7 +262,8 @@ export default function Projects() {
               ))}
             </div>
           </div>
-        ) : project.image ? (
+          );
+        })() : project.image ? (
           <button
             type="button"
             className="project-visual"
