@@ -87,6 +87,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background: var(--bg);
+  letter-spacing: -0.01em;
 }
 
 h1,
@@ -101,7 +102,7 @@ a {
 
 /* Shared section styles */
 .section {
-  padding: 7rem 2rem;
+  padding: 4.5rem 2rem;
   position: relative;
   isolation: isolate;
 }
