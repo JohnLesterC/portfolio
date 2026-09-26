@@ -336,25 +336,6 @@
   min-height: 0;
 }
 
-/* Top accent line per type */
-.project-tile::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--tile-color, var(--accent));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-  z-index: 2;
-}
-
-.project-tile:hover::before {
-  transform: scaleX(1);
-}
-
 .project-tile:hover {
   border-color: var(--tile-color-border, var(--accent-border));
   box-shadow: 0 12px 40px var(--tile-shadow, rgba(139, 92, 246, 0.12));
