@@ -6,7 +6,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .projects-count {
@@ -20,18 +20,30 @@
   font-weight: 700;
 }
 
-/* Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--bento-gap);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 1.1fr);
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x proximity;
 }
 
-/* Tile */
+.projects-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-grid::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 999px;
+}
+
 .project-tile {
+  min-height: 430px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--bento-radius);
+  border-radius: 22px;
   position: relative;
   overflow: hidden;
   transition:
@@ -39,10 +51,12 @@
     box-shadow 0.25s,
     transform 0.25s;
   cursor: default;
+  scroll-snap-align: start;
 }
 
 .project-tile.featured {
-  grid-column: span 2;
+  grid-column: auto;
+  min-height: 470px;
 }
 
 /* Top accent line per type */
@@ -127,8 +141,9 @@
 
 /* Inner wrapper for hover reveal */
 .project-tile-inner {
-  padding: 1.75rem;
+  padding: 1.35rem 1.35rem 1.25rem;
   position: relative;
+  height: 100%;
 }
 
 /* Front face */
@@ -167,7 +182,7 @@
 }
 
 .project-name {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-1);
   margin: 0 0 0.3rem;
@@ -175,7 +190,7 @@
 }
 
 .project-tile.featured .project-name {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
 }
 
 .project-role {
@@ -194,7 +209,7 @@
 }
 
 .case-step {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-2);
   line-height: 1.55;
   margin: 0;
@@ -295,19 +310,13 @@
 /* Responsive */
 @media (max-width: 960px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .project-tile.featured {
-    grid-column: span 2;
+    grid-auto-columns: minmax(260px, 78vw);
   }
 }
 
 @media (max-width: 640px) {
   .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  .project-tile.featured {
-    grid-column: span 1;
+    grid-auto-columns: minmax(85vw, 1fr);
   }
   .projects-header {
     flex-direction: column;
