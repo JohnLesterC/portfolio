@@ -60,7 +60,7 @@ export default function Hero() {
         {/* Stat tiles */}
         <div className="hero-stats-col">
           <div className="bento-tile hero-stat-tile stat-violet">
-            <span className="stat-num">6</span>
+            <span className="stat-num">12</span>
             <span className="stat-label">// projects built</span>
           </div>
           <div className="bento-tile hero-stat-tile">
