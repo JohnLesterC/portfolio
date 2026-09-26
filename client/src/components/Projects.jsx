@@ -172,6 +172,19 @@ const projects = [
     stack: ["NDA", "Inventory", "Sales Tracking", "Square API", "Workflow Automation"],
     note: "Confidential project details are intentionally limited for NDA purposes.",
   },
+  {
+    id: 13,
+    name: "The Jaded Art Director",
+    type: "Base44 Contest",
+    typeKey: "web-app",
+    role: "Contest Participant & Product Builder",
+    period: "2026",
+    problem: "Designers needed direct, practical feedback instead of vague praise or generic critique.",
+    solution: "Built a playful art-direction tool where users upload a design and receive a blunt but useful critique, with shareable summaries and a history of past roasts.",
+    outcome: "Created a focused contest entry that turns design review into a memorable, actionable experience.",
+    stack: ["Base44", "AI Product", "UX Design", "Image Uploads"],
+    url: "https://aurelion-copy-6ee5c53f.base44.app",
+  },
 ];
 
 const newestFirstProjects = [...projects].sort((first, second) => {
@@ -315,7 +328,7 @@ export default function Projects() {
             <span className="section-pill">// work &amp; case studies</span>
             <h2 className="bento-section-title">Selected Projects</h2>
           </div>
-          <p className="projects-count">12 builds / 3 featured</p>
+          <p className="projects-count">13 builds / 3 featured</p>
         </div>
         <div className="featured-projects">
           {featuredProjects.map((project) => renderProject(project, true))}
