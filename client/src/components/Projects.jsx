@@ -183,6 +183,7 @@ const newestFirstProjects = [...projects].sort((first, second) => {
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedImage, setSelectedImage] = useState(null);
   const featuredProjects = newestFirstProjects.filter((project) =>
     [12, 11, 10].includes(project.id),
   );
@@ -211,23 +212,37 @@ export default function Projects() {
 
         {project.images ? (
           <div className="project-gallery">
-            <div className="project-gallery-main">
+            <button
+              type="button"
+              className="project-gallery-main"
+              onClick={() => setSelectedImage({ src: project.images[0], name: project.name })}
+              aria-label={`View larger ${project.name} preview`}
+            >
               <img src={project.images[0]} alt={`${project.name} main preview`} />
-            </div>
+            </button>
             <div className="project-gallery-strip">
-              {project.images.slice(1).map((image, index) => (
-                <img
+              {project.images.map((image, index) => (
+                <button
                   key={image}
-                  src={image}
-                  alt={`${project.name} screen ${index + 2}`}
-                />
+                  type="button"
+                  className={index === 0 ? "active" : ""}
+                  onClick={() => setSelectedImage({ src: image, name: project.name })}
+                  aria-label={`View ${project.name} screen ${index + 1}`}
+                >
+                  <img src={image} alt={`${project.name} screen ${index + 1}`} />
+                </button>
               ))}
             </div>
           </div>
         ) : project.image ? (
-          <div className="project-visual">
+          <button
+            type="button"
+            className="project-visual"
+            onClick={() => setSelectedImage({ src: project.image, name: project.name })}
+            aria-label={`View larger ${project.name} preview`}
+          >
             <img src={project.image} alt={`${project.name} preview`} />
-          </div>
+          </button>
         ) : null}
 
         <h3 className="project-name">{project.name}</h3>
@@ -300,6 +315,30 @@ export default function Projects() {
           {filteredArchive.map((project) => renderProject(project))}
         </div>
       </div>
+
+      {selectedImage && (
+        <div
+          className="project-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedImage.name} image preview`}
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            type="button"
+            className="lightbox-close"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close image preview"
+          >
+            x
+          </button>
+          <img
+            src={selectedImage.src}
+            alt={`${selectedImage.name} enlarged preview`}
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }
