@@ -3,6 +3,7 @@ import "./Navbar.css";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
   { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
   { href: "#projects", label: "Projects" },

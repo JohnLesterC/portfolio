@@ -1,0 +1,163 @@
+﻿/* ================================================
+   SERVICES — Bento Grid Offerings
+================================================ */
+
+.services-header {
+  margin-bottom: 2rem;
+}
+
+.services-intro {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  max-width: 620px;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+.services-bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--bento-gap);
+  margin-bottom: var(--bento-gap);
+}
+
+.service-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-light);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+}
+
+.service-tile.service-featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-color: rgba(139, 92, 246, 0.28);
+}
+
+.service-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.service-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-light);
+}
+
+.service-pricing {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: var(--surface-hover);
+  color: var(--text-2);
+  border: 1px solid var(--border);
+}
+
+.service-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-1);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.5px;
+}
+
+.service-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.service-problem strong {
+  color: var(--text-1);
+}
+
+.service-deliverables strong {
+  color: var(--accent-light);
+}
+
+.service-footer {
+  margin-top: auto;
+}
+
+.service-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.service-tag {
+  font-size: 0.74rem;
+  font-family: var(--mono);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+}
+
+/* Callout tile at bottom of services */
+.services-cta-wrap {
+  margin-top: var(--bento-gap);
+}
+
+.services-cta-tile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.services-cta-heading {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-1);
+  margin-bottom: 0.35rem;
+}
+
+.services-cta-sub {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  margin: 0;
+}
+
+.services-cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .services-bento {
+    grid-template-columns: 1fr;
+  }
+  .service-tile.service-featured {
+    grid-column: span 1;
+  }
+  .services-cta-tile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

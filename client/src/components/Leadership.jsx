@@ -6,7 +6,7 @@ const roles = [
     org: "Information Technology Society",
     period: "2025 – 2026",
     desc: "Serve as liaison for the student section, supporting planning and organization of departmental initiatives.",
-    ongoing: true,
+    ongoing: false,
   },
   {
     title: "Academic Committee Member",
@@ -48,7 +48,7 @@ export default function Leadership() {
               {r.ongoing && (
                 <div className="lead-status-row">
                   <span className="lead-status-dot dot-active" />
-                  <span className="lead-status-text">Ongoing</span>
+                  <span className="lead-status-text">Graduate</span>
                 </div>
               )}
               <h3 className="lead-title">{r.title}</h3>

@@ -1,4 +1,4 @@
-﻿import "./Hero.css";
+import "./Hero.css";
 
 export default function Hero() {
   return (
@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="bento-tile hero-main-tile">
           <div className="hero-eyebrow">
             <span className="status-dot" />
-            <span>Available for opportunities</span>
+            <span>Open for freelance projects &amp; full-time roles</span>
           </div>
 
           <h1 className="hero-headline">
@@ -18,7 +18,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-subtitle">
-            IT Graduate &middot; Full-Stack Developer &middot; AI Enthusiast
+            Full-Stack Developer &middot; Freelance Web Specialist &middot; IT Graduate
           </p>
 
           <div className="code-window hero-code">
@@ -30,21 +30,29 @@ export default function Hero() {
             </div>
             <pre className="code-body">
               <code>{`const developer = {
-  name:   "John Lester Camit",
-  role:   "Full-Stack Developer",
-  skills: ["HTML", "CSS", "JS", "PHP", "Python"],
-  tools:  ["React", "Node.js", "MySQL"],
-  status: "open_to_work"
+  name:     "John Lester Camit",
+  role:     "Full-Stack Developer & Freelancer",
+  services: ["Web Apps", "Wix/WordPress", "QA Testing", "SEO"],
+  stack:    ["React", "Node.js", "Express", "MongoDB", "MySQL"],
+  status:   "open_to_collaborate"
 }`}</code>
             </pre>
           </div>
 
           <div className="hero-ctas">
-            <a href="#projects" className="btn-primary">
+            <a href="#services" className="btn-primary">
+              Hire Me / Services
+            </a>
+            <a href="#projects" className="btn-ghost">
               View Projects
             </a>
-            <a href="mailto:johnlestercamit@gmail.com" className="btn-ghost">
-              Get In Touch
+            <a
+              href="https://calendly.com/johnlestercamit/let-s-meet"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              Book a Call &rarr;
             </a>
           </div>
         </div>
