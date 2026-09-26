@@ -6,28 +6,24 @@ const roles = [
     org: "Information Technology Society",
     period: "2025 – 2026",
     desc: "Serve as liaison for the student section, supporting planning and organization of departmental initiatives.",
-    ongoing: false,
   },
   {
     title: "Academic Committee Member",
     org: "Information Technology Society",
     period: "2024 – 2025",
     desc: "Coordinated guest speakers, secured venues, and developed event timelines for academic programs.",
-    ongoing: false,
   },
   {
     title: "Social Media Manager",
     org: "Information Technology Society",
     period: "2023 – 2024",
     desc: "Managed the official Facebook page, scheduling content to boost student engagement and event awareness.",
-    ongoing: false,
   },
   {
     title: "Class Auditor – NSTP",
     org: "National Service Training Program",
     period: "2022 – 2023",
     desc: "Oversaw attendance, records, and logistics for NSTP activities and community service projects.",
-    ongoing: false,
   },
 ];
 
@@ -41,16 +37,7 @@ export default function Leadership() {
         </div>
         <div className="leadership-grid">
           {roles.map((r) => (
-            <div
-              key={r.title}
-              className={`bento-tile leadership-tile${r.ongoing ? " tile-ongoing" : ""}`}
-            >
-              {r.ongoing && (
-                <div className="lead-status-row">
-                  <span className="lead-status-dot dot-active" />
-                  <span className="lead-status-text">Graduate</span>
-                </div>
-              )}
+            <div key={r.title} className="bento-tile leadership-tile">
               <h3 className="lead-title">{r.title}</h3>
               <span className="lead-org">{r.org}</span>
               <span className="lead-period">{r.period}</span>

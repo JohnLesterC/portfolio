@@ -140,6 +140,19 @@ const projects = [
     url: "https://utopian-vantage-money-flow.base44.app/demo",
     note: "Across all three projects, I handled the full build — from initial concept and data structure through interface design, automation/workflow logic, and testing — using Base44 as the development platform and Claude as an active development partner throughout.",
   },
+  {
+    id: 12,
+    name: "Daily Stock Flow",
+    type: "NDA Project",
+    typeKey: "web-app",
+    role: "Web Developer & System Integrator",
+    period: "2026",
+    problem: "The client needed a centralized system to manage daily stock movement across multiple stores while keeping operations fast and consistent.",
+    solution: "Built a daily stock flow platform with feature allocation across multiple stores, a gamified leaderboard for sales and upsell performance, and automated cash flow integration with Square for cashier entries and daily records.",
+    outcome: "Improved operational visibility, accelerated store-level reporting, and supported seamless stock and invoice exchange with the client's existing Australian systems.",
+    stack: ["NDA", "Inventory", "Sales Tracking", "Square API", "Workflow Automation"],
+    note: "Confidential project details are intentionally limited for NDA purposes.",
+  },
 ];
 
 export default function Projects() {
