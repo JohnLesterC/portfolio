@@ -251,7 +251,8 @@ export default function Projects() {
           <span className="project-year">{project.period}</span>
         </div>
 
-        {project.images ? (() => {
+        <div className="project-media">
+          {project.images ? (() => {
           const galleryIndex = galleryIndexes[project.id] ?? 0;
           const galleryImage = project.images[galleryIndex];
           const changeGalleryImage = (direction) => {
@@ -303,7 +304,7 @@ export default function Projects() {
             </div>
           </div>
           );
-        })() : project.image ? (
+          })() : project.image ? (
           <button
             type="button"
             className="project-visual"
@@ -312,37 +313,40 @@ export default function Projects() {
           >
             <img src={project.image} alt={`${project.name} preview`} />
           </button>
-        ) : null}
-
-        <h3 className="project-name">{project.name}</h3>
-        <p className="project-role">// {project.role}</p>
-        <p className="project-summary">{project.solution}</p>
-
-        {featured && (
-          <div className="project-outcome">
-            <span>Outcome</span>
-            <p>{project.outcome}</p>
-          </div>
-        )}
-
-        <div className="project-stack">
-          {project.stack.map((stackItem) => (
-            <code key={stackItem} className="stack-tag">
-              {stackItem}
-            </code>
-          ))}
+          ) : null}
         </div>
 
-        {project.url && (
-          <a
-            className="project-link"
-            href={project.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View live build <span aria-hidden="true">↗</span>
-          </a>
-        )}
+        <div className="project-details">
+          <h3 className="project-name">{project.name}</h3>
+          <p className="project-role">// {project.role}</p>
+          <p className="project-summary">{project.solution}</p>
+
+          {featured && (
+            <div className="project-outcome">
+              <span>Outcome</span>
+              <p>{project.outcome}</p>
+            </div>
+          )}
+
+          <div className="project-stack">
+            {project.stack.map((stackItem) => (
+              <code key={stackItem} className="stack-tag">
+                {stackItem}
+              </code>
+            ))}
+          </div>
+
+          {project.url && (
+            <a
+              className="project-link"
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View live build <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
