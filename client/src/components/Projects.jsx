@@ -1,7 +1,20 @@
 import "./Projects.css";
+import { useState } from "react";
 
 import vantagePreview from "../assets/Vantage/ScreenShot Tool -20260925173620.png";
+import vantageScreenTwo from "../assets/Vantage/ScreenShot Tool -20260925173650.png";
+import vantageScreenThree from "../assets/Vantage/ScreenShot Tool -20260925173701.png";
+import vantageScreenFour from "../assets/Vantage/ScreenShot Tool -20260925173712.png";
+import vantageScreenFive from "../assets/Vantage/ScreenShot Tool -20260925173723.png";
 import proVaPreview from "../assets/Pro-VA/ScreenShot Tool -20260925173600.png";
+
+const vantageGallery = [
+  vantagePreview,
+  vantageScreenTwo,
+  vantageScreenThree,
+  vantageScreenFour,
+  vantageScreenFive,
+];
 
 const projects = [
   {
@@ -144,6 +157,7 @@ const projects = [
     url: "https://utopian-vantage-money-flow.base44.app/demo",
     note: "Across all three projects, I handled the full build — from initial concept and data structure through interface design, automation/workflow logic, and testing — using Base44 as the development platform and Claude as an active development partner throughout.",
     image: vantagePreview,
+    images: vantageGallery,
   },
   {
     id: 12,
@@ -168,6 +182,87 @@ const newestFirstProjects = [...projects].sort((first, second) => {
 });
 
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const featuredProjects = newestFirstProjects.filter((project) =>
+    [12, 11, 10].includes(project.id),
+  );
+  const archiveProjects = newestFirstProjects.filter(
+    (project) => ![12, 11, 10].includes(project.id),
+  );
+  const filteredArchive = archiveProjects.filter(
+    (project) => activeFilter === "All" || project.type === activeFilter,
+  );
+  const filters = [
+    "All",
+    ...new Set(archiveProjects.map((project) => project.type)),
+  ];
+
+  const renderProject = (project, featured = false) => (
+    <article
+      key={project.id}
+      className={`project-tile${featured ? " project-featured" : ""}`}
+      data-type={project.typeKey}
+    >
+      <div className="project-tile-inner">
+        <div className="project-tile-header">
+          <span className="project-type-badge">{project.type}</span>
+          <span className="project-year">{project.period}</span>
+        </div>
+
+        {project.images ? (
+          <div className="project-gallery">
+            <div className="project-gallery-main">
+              <img src={project.images[0]} alt={`${project.name} main preview`} />
+            </div>
+            <div className="project-gallery-strip">
+              {project.images.slice(1).map((image, index) => (
+                <img
+                  key={image}
+                  src={image}
+                  alt={`${project.name} screen ${index + 2}`}
+                />
+              ))}
+            </div>
+          </div>
+        ) : project.image ? (
+          <div className="project-visual">
+            <img src={project.image} alt={`${project.name} preview`} />
+          </div>
+        ) : null}
+
+        <h3 className="project-name">{project.name}</h3>
+        <p className="project-role">// {project.role}</p>
+        <p className="project-summary">{project.solution}</p>
+
+        {featured && (
+          <div className="project-outcome">
+            <span>Outcome</span>
+            <p>{project.outcome}</p>
+          </div>
+        )}
+
+        <div className="project-stack">
+          {project.stack.map((stackItem) => (
+            <code key={stackItem} className="stack-tag">
+              {stackItem}
+            </code>
+          ))}
+        </div>
+
+        {project.url && (
+          <a
+            className="project-link"
+            href={project.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View live build <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
+    </article>
+  );
+
   return (
     <section className="section" id="projects">
       <div className="container">
@@ -176,92 +271,33 @@ export default function Projects() {
             <span className="section-pill">// work &amp; case studies</span>
             <h2 className="bento-section-title">Selected Projects</h2>
           </div>
-          <p className="projects-count">
-            <span className="mono-num">{newestFirstProjects.length}</span> builds
-          </p>
+          <p className="projects-count">12 builds / 3 featured</p>
         </div>
-        <div className="projects-grid">
-          {newestFirstProjects.map((p) => (
-            <div
-              key={p.id}
-              className={`project-tile${p.featured ? " featured" : ""}`}
-              data-type={p.typeKey}
-            >
-              <div className="project-tile-inner">
-                <div className="tile-front">
-                  <div className="project-tile-header">
-                    <span className="project-type-badge">{p.type}</span>
-                    <span className="project-year">{p.period}</span>
-                  </div>
+        <div className="featured-projects">
+          {featuredProjects.map((project) => renderProject(project, true))}
+        </div>
 
-                  {p.image && (
-                    <div className="project-visual">
-                      <img src={p.image} alt={`${p.name} preview`} />
-                    </div>
-                  )}
+        <div className="project-archive-heading">
+          <div>
+            <span className="section-pill">// the archive</span>
+            <h3>More builds &amp; client work</h3>
+          </div>
+          <div className="project-filters" aria-label="Filter project archive">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                className={activeFilter === filter ? "active" : ""}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
 
-                  <h3 className="project-name">{p.name}</h3>
-                  <p className="project-role">// {p.role}</p>
-
-                  <div className="project-case-study">
-                    <p className="case-step">
-                      <span className="case-label">Problem:</span> {p.problem}
-                    </p>
-                    <p className="case-step">
-                      <span className="case-label">Solution:</span> {p.solution}
-                    </p>
-                    <p className="case-step">
-                      <span className="case-label">Outcome:</span> {p.outcome}
-                    </p>
-                    {p.note && (
-                      <p className="case-step project-note">
-                        <span className="case-label">Note:</span> {p.note}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="project-stack">
-                    {p.stack.map((s) => (
-                      <code key={s} className="stack-tag">
-                        {s}
-                      </code>
-                    ))}
-                  </div>
-
-                  {p.url && (
-                    <a
-                      className="project-link"
-                      href={p.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      View project
-                    </a>
-                  )}
-                </div>
-                <div className="tile-hover-reveal">
-                  <div className="code-window reveal-code">
-                    <div className="code-window-bar">
-                      <span className="win-dot red" />
-                      <span className="win-dot yellow" />
-                      <span className="win-dot green" />
-                      <span className="win-filename">
-                        {p.name.toLowerCase().replace(/\s+/g, "-")}.ts
-                      </span>
-                    </div>
-                    <pre className="code-body">
-                      <code>{`const project = {
-  name:  "${p.name}",
-  type:  "${p.type}",
-  role:  "${p.role}",
-  stack: [${p.stack.map((s) => `"${s}"`).join(", ")}]
-}`}</code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="archive-grid">
+          {filteredArchive.map((project) => renderProject(project))}
         </div>
       </div>
     </section>

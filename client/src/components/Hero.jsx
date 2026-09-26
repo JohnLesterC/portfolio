@@ -1,42 +1,30 @@
 import "./Hero.css";
 
+import heroPreview from "../assets/Vantage/ScreenShot Tool -20260925173620.png";
+
 export default function Hero() {
   return (
     <section className="hero-section" id="hero">
-      <div className="hero-bento">
-        {/* Main content tile */}
-        <div className="bento-tile hero-main-tile">
+      <div className="hero-layout">
+        <div className="hero-main-content">
           <div className="hero-eyebrow">
             <span className="status-dot" />
             <span>Open for freelance projects &amp; full-time roles</span>
           </div>
 
           <h1 className="hero-headline">
-            Building <span className="gradient-text">digital</span> experiences
-            <br className="hero-br" />
-            with <span className="cyan-text">code</span> &amp; creativity
+            Full-Stack Engineer &amp; <span className="gradient-text">QA Specialist</span>
           </h1>
 
           <p className="hero-subtitle">
-            Full-Stack Developer &middot; Freelance Web Specialist &middot; IT Graduate
+            I build resilient web applications, workflow systems, and polished digital experiences for teams that need reliable execution.
           </p>
 
-          <div className="code-window hero-code">
-            <div className="code-window-bar">
-              <span className="win-dot red" />
-              <span className="win-dot yellow" />
-              <span className="win-dot green" />
-              <span className="win-filename">developer.ts</span>
-            </div>
-            <pre className="code-body">
-              <code>{`const developer = {
-  name:     "John Lester Camit",
-  role:     "Full-Stack Developer & Freelancer",
-  services: ["Web Apps", "Wix/WordPress", "QA Testing", "SEO"],
-  stack:    ["React", "Node.js", "Express", "MongoDB", "MySQL"],
-  status:   "open_to_collaborate"
-}`}</code>
-            </pre>
+          <div className="hero-proof-row">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+            <span>QA testing</span>
           </div>
 
           <div className="hero-ctas">
@@ -57,23 +45,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Stat tiles */}
-        <div className="hero-stats-col">
-          <div className="bento-tile hero-stat-tile stat-violet">
-            <span className="stat-num">12</span>
-            <span className="stat-label">// projects built</span>
+        <div className="hero-preview">
+          <div className="preview-topline">
+            <span>Featured build</span>
+            <span>Vantage / Base44</span>
           </div>
-          <div className="bento-tile hero-stat-tile">
-            <span className="stat-num">5</span>
-            <span className="stat-label">// certificates</span>
+          <div className="preview-frame">
+            <img src={heroPreview} alt="Vantage financial dashboard preview" />
           </div>
-          <div className="bento-tile hero-stat-tile stat-cyan">
-            <span className="stat-num">4+</span>
-            <span className="stat-label">// years coding</span>
-          </div>
-          <div className="bento-tile hero-stat-tile">
-            <span className="stat-num">4</span>
-            <span className="stat-label">// org roles</span>
+          <div className="preview-caption">
+            <strong>Product thinking, shipped.</strong>
+            <span>Interfaces that make complex workflows easier to trust.</span>
           </div>
         </div>
       </div>
