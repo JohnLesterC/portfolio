@@ -267,6 +267,33 @@
   font: 1rem var(--mono);
 }
 
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(9, 13, 22, 0.8);
+  color: var(--text-1);
+  cursor: pointer;
+  font-size: 1.35rem;
+  transform: translateY(-50%);
+}
+
+.lightbox-arrow:hover {
+  border-color: var(--accent-border);
+  background: var(--accent);
+}
+
+.lightbox-arrow-left {
+  left: 2rem;
+}
+
+.lightbox-arrow-right {
+  right: 2rem;
+}
+
 .project-archive-heading {
   display: flex;
   align-items: flex-end;

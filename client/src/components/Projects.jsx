@@ -286,7 +286,13 @@ export default function Projects() {
               <button
                 type="button"
                 className="gallery-image-button"
-                onClick={() => setSelectedImage({ src: galleryImage, name: project.name })}
+                onClick={() =>
+                  setSelectedImage({
+                    images: project.images,
+                    index: galleryIndex,
+                    name: project.name,
+                  })
+                }
                 aria-label={`View larger ${project.name} preview`}
               >
                 <img src={galleryImage} alt={`${project.name} screen ${galleryIndex + 1}`} />
@@ -327,7 +333,13 @@ export default function Projects() {
           <button
             type="button"
             className="project-visual"
-            onClick={() => setSelectedImage({ src: project.image, name: project.name })}
+            onClick={() =>
+              setSelectedImage({
+                images: [project.image],
+                index: 0,
+                name: project.name,
+              })
+            }
             aria-label={`View larger ${project.name} preview`}
           >
             <img src={project.image} alt={`${project.name} preview`} />
@@ -425,10 +437,44 @@ export default function Projects() {
             x
           </button>
           <img
-            src={selectedImage.src}
+            src={selectedImage.images[selectedImage.index]}
             alt={`${selectedImage.name} enlarged preview`}
             onClick={(event) => event.stopPropagation()}
           />
+          {selectedImage.images.length > 1 && (
+            <>
+              <button
+                type="button"
+                className="lightbox-arrow lightbox-arrow-left"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setSelectedImage((current) => ({
+                    ...current,
+                    index:
+                      (current.index - 1 + current.images.length) %
+                      current.images.length,
+                  }));
+                }}
+                aria-label={`Show previous ${selectedImage.name} image`}
+              >
+                &#8592;
+              </button>
+              <button
+                type="button"
+                className="lightbox-arrow lightbox-arrow-right"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setSelectedImage((current) => ({
+                    ...current,
+                    index: (current.index + 1) % current.images.length,
+                  }));
+                }}
+                aria-label={`Show next ${selectedImage.name} image`}
+              >
+                &#8594;
+              </button>
+            </>
+          )}
         </div>
       )}
     </section>
