@@ -32,6 +32,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-bottom: 4.5rem;
+  align-items: start;
 }
 
 .featured-projects .project-tile {
@@ -42,10 +43,10 @@
 .featured-projects .project-tile-inner {
   display: flex;
   flex-direction: column;
+  height: auto;
 }
 
 .featured-projects .project-stack {
-  margin-top: auto;
   padding-top: 0.25rem;
 }
 
@@ -58,6 +59,10 @@
   font-size: 0.88rem;
   line-height: 1.65;
   margin: 0 0 1.15rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 
 .project-outcome {
@@ -79,6 +84,10 @@
   font-size: 0.78rem;
   line-height: 1.5;
   margin: 0.25rem 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .project-gallery {
@@ -94,7 +103,7 @@
 
 .project-gallery-main {
   position: relative;
-  aspect-ratio: 4 / 2.45;
+  aspect-ratio: 16 / 8;
   width: 100%;
 }
 
@@ -178,7 +187,7 @@
 }
 
 .project-visual {
-  aspect-ratio: 4 / 2.45;
+  aspect-ratio: 16 / 8;
   border: 1px solid var(--border);
   cursor: zoom-in;
   padding: 0;
