@@ -18,6 +18,13 @@ import criticScreenEight from "../assets/the critic/screenshot-2026-09-26-141353
 import criticScreenNine from "../assets/the critic/screenshot-2026-09-26-141405.png";
 import criticScreenTen from "../assets/the critic/screenshot-2026-09-26-141449.png";
 import criticScreenEleven from "../assets/the critic/screenshot-2026-09-26-141458.png";
+import proVaScreenTwo from "../assets/Pro-VA/screenshot-2026-09-26-151221.png";
+import proVaScreenThree from "../assets/Pro-VA/screenshot-2026-09-26-151241.png";
+import proVaScreenFour from "../assets/Pro-VA/screenshot-2026-09-26-151253.png";
+import proVaScreenFive from "../assets/Pro-VA/screenshot-2026-09-26-151305.png";
+import proVaScreenSix from "../assets/Pro-VA/screenshot-2026-09-26-151317.png";
+import proVaScreenSeven from "../assets/Pro-VA/screenshot-2026-09-26-151341.png";
+import proVaScreenEight from "../assets/Pro-VA/screenshot-2026-09-26-151351.png";
 
 const vantageGallery = [
   vantagePreview,
@@ -39,6 +46,17 @@ const criticGallery = [
   criticScreenNine,
   criticScreenTen,
   criticScreenEleven,
+];
+
+const proVaGallery = [
+  proVaPreview,
+  proVaScreenTwo,
+  proVaScreenThree,
+  proVaScreenFour,
+  proVaScreenFive,
+  proVaScreenSix,
+  proVaScreenSeven,
+  proVaScreenEight,
 ];
 
 const projects = [
@@ -167,6 +185,7 @@ const projects = [
     url: "https://vigorous-va-track-flow.base44.app/demo",
     note: "Across all three projects, I handled the full build — from initial concept and data structure through interface design, automation/workflow logic, and testing — using Base44 as the development platform and Claude as an active development partner throughout.",
     image: proVaPreview,
+    images: proVaGallery,
   },
   {
     id: 11,
