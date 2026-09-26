@@ -21,25 +21,15 @@
 }
 
 .projects-grid {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 0.25rem 0.2rem 0.8rem;
-  scroll-snap-type: x proximity;
-}
-
-.projects-grid::-webkit-scrollbar {
-  height: 8px;
-}
-
-.projects-grid::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.35);
-  border-radius: 999px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.15rem;
+  align-items: stretch;
 }
 
 .project-tile {
-  flex: 0 0 340px;
-  min-height: 430px;
+  flex: 1 1 auto;
+  min-height: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 22px;
@@ -50,12 +40,10 @@
     box-shadow 0.25s,
     transform 0.25s;
   cursor: default;
-  scroll-snap-align: start;
 }
 
 .project-tile.featured {
-  flex-basis: 400px;
-  min-height: 470px;
+  min-height: 0;
 }
 
 /* Top accent line per type */
@@ -199,6 +187,22 @@
   margin: 0 0 0.9rem;
 }
 
+.project-visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  margin-bottom: 1rem;
+}
+
+.project-visual img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 /* Case-study breakdown */
 .project-case-study {
   display: flex;
@@ -275,26 +279,11 @@
 
 /* Hover reveal overlay */
 .tile-hover-reveal {
-  position: absolute;
-  inset: 0;
-  background: var(--surface);
-  padding: 1.75rem;
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 2;
+  display: none;
 }
 
 .project-tile:hover .tile-hover-reveal {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  display: none;
 }
 
 .reveal-code {
@@ -308,24 +297,22 @@
 
 /* Responsive */
 @media (max-width: 960px) {
-  .project-tile {
-    flex-basis: 290px;
-  }
-  .project-tile.featured {
-    flex-basis: 340px;
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
 
 @media (max-width: 640px) {
-  .project-tile,
-  .project-tile.featured {
-    flex-basis: 82vw;
-  }
   .projects-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
   .tile-hover-reveal {
     display: none;
   }

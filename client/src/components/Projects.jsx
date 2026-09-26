@@ -1,5 +1,8 @@
 import "./Projects.css";
 
+import vantagePreview from "../assets/Vantage/ScreenShot Tool -20260925173620.png";
+import proVaPreview from "../assets/Pro-VA/ScreenShot Tool -20260925173600.png";
+
 const projects = [
   {
     id: 1,
@@ -125,6 +128,7 @@ const projects = [
     stack: ["Base44", "Workflow App", "Productivity", "Operations"],
     url: "https://vigorous-va-track-flow.base44.app/demo",
     note: "Across all three projects, I handled the full build — from initial concept and data structure through interface design, automation/workflow logic, and testing — using Base44 as the development platform and Claude as an active development partner throughout.",
+    image: proVaPreview,
   },
   {
     id: 11,
@@ -139,6 +143,7 @@ const projects = [
     stack: ["Base44", "Finance", "Dashboard", "UX"],
     url: "https://utopian-vantage-money-flow.base44.app/demo",
     note: "Across all three projects, I handled the full build — from initial concept and data structure through interface design, automation/workflow logic, and testing — using Base44 as the development platform and Claude as an active development partner throughout.",
+    image: vantagePreview,
   },
   {
     id: 12,
@@ -155,6 +160,13 @@ const projects = [
   },
 ];
 
+const newestFirstProjects = [...projects].sort((first, second) => {
+  const firstYear = Number(first.period.match(/\d{4}/g)?.at(-1) ?? 0);
+  const secondYear = Number(second.period.match(/\d{4}/g)?.at(-1) ?? 0);
+
+  return secondYear - firstYear || second.id - first.id;
+});
+
 export default function Projects() {
   return (
     <section className="section" id="projects">
@@ -165,11 +177,11 @@ export default function Projects() {
             <h2 className="bento-section-title">Selected Projects</h2>
           </div>
           <p className="projects-count">
-            <span className="mono-num">{projects.length}</span> builds
+            <span className="mono-num">{newestFirstProjects.length}</span> builds
           </p>
         </div>
         <div className="projects-grid">
-          {projects.map((p) => (
+          {newestFirstProjects.map((p) => (
             <div
               key={p.id}
               className={`project-tile${p.featured ? " featured" : ""}`}
@@ -181,6 +193,13 @@ export default function Projects() {
                     <span className="project-type-badge">{p.type}</span>
                     <span className="project-year">{p.period}</span>
                   </div>
+
+                  {p.image && (
+                    <div className="project-visual">
+                      <img src={p.image} alt={`${p.name} preview`} />
+                    </div>
+                  )}
+
                   <h3 className="project-name">{p.name}</h3>
                   <p className="project-role">// {p.role}</p>
 
