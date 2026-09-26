@@ -7,6 +7,17 @@ import vantageScreenThree from "../assets/Vantage/ScreenShot Tool -2026092517370
 import vantageScreenFour from "../assets/Vantage/ScreenShot Tool -20260925173712.png";
 import vantageScreenFive from "../assets/Vantage/ScreenShot Tool -20260925173723.png";
 import proVaPreview from "../assets/Pro-VA/ScreenShot Tool -20260925173600.png";
+import criticScreenOne from "../assets/the critic/screenshot-2026-09-26-140406.png";
+import criticScreenTwo from "../assets/the critic/screenshot-2026-09-26-140849.png";
+import criticScreenThree from "../assets/the critic/screenshot-2026-09-26-140942.png";
+import criticScreenFour from "../assets/the critic/screenshot-2026-09-26-141000.png";
+import criticScreenFive from "../assets/the critic/screenshot-2026-09-26-141103.png";
+import criticScreenSix from "../assets/the critic/screenshot-2026-09-26-141329.png";
+import criticScreenSeven from "../assets/the critic/screenshot-2026-09-26-141341.png";
+import criticScreenEight from "../assets/the critic/screenshot-2026-09-26-141353.png";
+import criticScreenNine from "../assets/the critic/screenshot-2026-09-26-141405.png";
+import criticScreenTen from "../assets/the critic/screenshot-2026-09-26-141449.png";
+import criticScreenEleven from "../assets/the critic/screenshot-2026-09-26-141458.png";
 
 const vantageGallery = [
   vantagePreview,
@@ -14,6 +25,20 @@ const vantageGallery = [
   vantageScreenThree,
   vantageScreenFour,
   vantageScreenFive,
+];
+
+const criticGallery = [
+  criticScreenOne,
+  criticScreenTwo,
+  criticScreenThree,
+  criticScreenFour,
+  criticScreenFive,
+  criticScreenSix,
+  criticScreenSeven,
+  criticScreenEight,
+  criticScreenNine,
+  criticScreenTen,
+  criticScreenEleven,
 ];
 
 const projects = [
@@ -184,6 +209,8 @@ const projects = [
     outcome: "Created a focused contest entry that turns design review into a memorable, actionable experience.",
     stack: ["Base44", "AI Product", "UX Design", "Image Uploads"],
     url: "https://aurelion-copy-6ee5c53f.base44.app",
+    image: criticScreenOne,
+    images: criticGallery,
   },
 ];
 
