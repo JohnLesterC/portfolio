@@ -50,10 +50,6 @@
   padding-top: 0.25rem;
 }
 
-.featured-projects .project-gallery-strip {
-  display: none;
-}
-
 .featured-projects .project-tile:first-child {
   grid-column: span 1;
 }
@@ -540,7 +536,7 @@
   transform: translateY(-1px);
   border-color: var(--accent);
 }
-
+  display: flex;
 .stack-tag {
   font-size: 0.7rem;
   font-family: var(--mono);
