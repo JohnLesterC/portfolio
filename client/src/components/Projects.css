@@ -50,6 +50,10 @@
   padding-top: 0.25rem;
 }
 
+.featured-projects .project-gallery-strip {
+  display: none;
+}
+
 .featured-projects .project-tile:first-child {
   grid-column: span 1;
 }
@@ -103,7 +107,7 @@
 
 .project-gallery-main {
   position: relative;
-  aspect-ratio: 16 / 8;
+  aspect-ratio: 16 / 7;
   width: 100%;
 }
 
@@ -187,7 +191,7 @@
 }
 
 .project-visual {
-  aspect-ratio: 16 / 8;
+  aspect-ratio: 16 / 7;
   border: 1px solid var(--border);
   cursor: zoom-in;
   padding: 0;
