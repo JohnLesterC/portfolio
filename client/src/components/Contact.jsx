@@ -1,6 +1,19 @@
+import { useState } from "react";
 import "./Contact.css";
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("johnlestercamit@gmail.com");
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
     <section className="portfolio-section contact-section" id="contact" aria-labelledby="contact-title">
       <div className="section-inner contact-inner">
@@ -9,10 +22,14 @@ export default function Contact() {
         <p className="contact-copy">
           Tell me what your team needs to make simpler. I work remotely from the Philippines with clients in Australia and the UK.
         </p>
+        <p className="contact-email">johnlestercamit@gmail.com</p>
         <div className="contact-actions">
           <a className="button button-primary" href="mailto:johnlestercamit@gmail.com?subject=Business%20systems%20project">
             Email John
           </a>
+          <button className="button button-secondary" type="button" onClick={copyEmail}>
+            {copied ? "Email copied" : "Copy email"}
+          </button>
           <a className="button button-secondary" href="https://www.linkedin.com/in/john-lester-camit" target="_blank" rel="noopener noreferrer">
             Connect on LinkedIn
           </a>
