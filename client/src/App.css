@@ -453,6 +453,27 @@ img {
   grid-row: 1 / -1;
 }
 
+.case-study-image-button {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--surface);
+  cursor: zoom-in;
+}
+
+.case-study-image-button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline-offset: -3px;
+}
+
+.case-study-image-button:hover .case-study-image {
+  transform: scale(1.035);
+}
+
 .case-study-placeholder {
   display: grid;
   width: 100%;
@@ -537,6 +558,90 @@ img {
   font-weight: 700;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+}
+
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(9, 15, 13, 0.88);
+  backdrop-filter: blur(12px);
+}
+
+.image-viewer-dialog {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1100px);
+  max-height: calc(100vh - 48px);
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.image-viewer-toolbar,
+.image-viewer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.image-viewer-toolbar {
+  padding: 0 0 12px 4px;
+}
+
+.image-viewer-toolbar p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 0.85rem;
+}
+
+.image-viewer-close {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-1);
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.image-viewer-close:hover,
+.image-viewer-controls button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.image-viewer-image {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  max-height: calc(100vh - 170px);
+  object-fit: contain;
+  background: var(--bg);
+}
+
+.image-viewer-controls {
+  justify-content: flex-end;
+  padding-top: 12px;
+}
+
+.image-viewer-controls button {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  font-weight: 700;
 }
 
 .process-section {

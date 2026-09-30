@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import vantageScreenshot from "../assets/Vantage/ScreenShot Tool -20260925173620.png";
 import vantageScreenshotTwo from "../assets/Vantage/ScreenShot Tool -20260925173650.png";
 import vantageScreenshotThree from "../assets/Vantage/ScreenShot Tool -20260925173701.png";
@@ -88,19 +89,26 @@ const caseStudies = [
   },
 ];
 
-function ProjectMedia({ study }) {
+function ProjectMedia({ study, onOpen }) {
   if (study.images?.length) {
     return (
       <div className={`case-study-gallery ${study.images.length === 1 ? "single" : ""}`}>
         {study.images.slice(0, 3).map((image, index) => (
-          <img
-            className={index === 0 ? "case-study-image featured" : "case-study-image"}
+          <button
+            type="button"
+            className={index === 0 ? "case-study-image-button featured" : "case-study-image-button"}
             key={image.src}
+            onClick={(event) => onOpen(study.images, index, event.currentTarget)}
+            aria-label={`View larger image: ${image.alt}`}
+          >
+            <img
+            className={index === 0 ? "case-study-image featured" : "case-study-image"}
             src={image.src}
             alt={image.alt}
             loading="lazy"
             decoding="async"
-          />
+            />
+          </button>
         ))}
       </div>
     );
@@ -114,6 +122,46 @@ function ProjectMedia({ study }) {
 }
 
 export default function Projects() {
+  const [viewer, setViewer] = useState(null);
+  const closeButtonRef = useRef(null);
+  const lastTriggerRef = useRef(null);
+
+  useEffect(() => {
+    if (!viewer) {
+      lastTriggerRef.current?.focus();
+      return undefined;
+    }
+
+    closeButtonRef.current?.focus();
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setViewer(null);
+      } else if (event.key === "ArrowRight") {
+        setViewer((current) => ({
+          ...current,
+          index: (current.index + 1) % current.images.length,
+        }));
+      } else if (event.key === "ArrowLeft") {
+        setViewer((current) => ({
+          ...current,
+          index: (current.index - 1 + current.images.length) % current.images.length,
+        }));
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [viewer]);
+
+  const openViewer = (images, index, trigger) => {
+    lastTriggerRef.current = trigger;
+    setViewer({ images, index });
+  };
+
   return (
     <section className="portfolio-section case-studies-section" id="projects" aria-labelledby="projects-title">
       <div className="section-inner">
@@ -128,7 +176,7 @@ export default function Projects() {
           {caseStudies.map((study) => (
             <article className="case-study" key={study.number}>
               <div className="case-study-media">
-                <ProjectMedia study={study} />
+                <ProjectMedia study={study} onOpen={openViewer} />
               </div>
               <div className="case-study-content">
                 <div className="case-study-heading">
@@ -168,6 +216,29 @@ export default function Projects() {
           ))}
         </div>
       </div>
+      {viewer && (
+        <div className="image-viewer" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setViewer(null)}>
+          <div className="image-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="image-viewer-title">
+            <div className="image-viewer-toolbar">
+              <p id="image-viewer-title">Project image {viewer.index + 1} of {viewer.images.length}</p>
+              <button ref={closeButtonRef} className="image-viewer-close" type="button" onClick={() => setViewer(null)} aria-label="Close image viewer">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <img className="image-viewer-image" src={viewer.images[viewer.index].src} alt={viewer.images[viewer.index].alt} />
+            {viewer.images.length > 1 && (
+              <div className="image-viewer-controls">
+                <button type="button" onClick={() => setViewer((current) => ({ ...current, index: (current.index - 1 + current.images.length) % current.images.length }))}>
+                  Previous
+                </button>
+                <button type="button" onClick={() => setViewer((current) => ({ ...current, index: (current.index + 1) % current.images.length }))}>
+                  Next
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
