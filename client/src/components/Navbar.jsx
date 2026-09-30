@@ -2,15 +2,11 @@ import { useState, useEffect } from "react";
 import "./Navbar.css";
 
 const navLinks = [
-  { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  { href: "#projects", label: "Case studies" },
+  { href: "#process", label: "How I work" },
   { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#certificates", label: "Certificates" },
-  { href: "#leadership", label: "Leadership" },
-  { href: "#vision", label: "Vision" },
+  { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -27,7 +23,7 @@ export default function Navbar({ theme, toggleTheme }) {
   const handleNavClick = () => setMenuOpen(false);
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`} aria-label="Primary navigation" onKeyDown={(event) => event.key === "Escape" && setMenuOpen(false)}>
       <div className="nav-container">
         <a href="#hero" className="nav-logo">
           JL<span className="accent">.</span>
@@ -36,7 +32,7 @@ export default function Navbar({ theme, toggleTheme }) {
           <button
             className="theme-toggle"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             title={
               theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
             }
@@ -73,14 +69,16 @@ export default function Navbar({ theme, toggleTheme }) {
           <button
             className={`hamburger ${menuOpen ? "open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
           >
             <span />
             <span />
             <span />
           </button>
         </div>
-        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <ul id="primary-navigation" className={`nav-links ${menuOpen ? "open" : ""}`}>
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} onClick={handleNavClick}>
