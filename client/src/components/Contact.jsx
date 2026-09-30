@@ -24,7 +24,12 @@ export default function Contact() {
         </p>
         <p className="contact-email">johnlestercamit@gmail.com</p>
         <div className="contact-actions">
-          <a className="button button-primary" href="mailto:johnlestercamit@gmail.com?subject=Business%20systems%20project">
+          <a
+            className="button button-primary"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=johnlestercamit%40gmail.com&su=Business%20systems%20project"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Email John
           </a>
           <button className="button button-secondary" type="button" onClick={copyEmail}>
