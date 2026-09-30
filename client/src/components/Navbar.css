@@ -3,12 +3,16 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.25rem 2rem;
-  transition: padding 0.4s ease;
+  padding: 0.85rem 2rem;
+  background: rgba(17, 24, 22, 0.94);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar.scrolled {
-  padding: 0.75rem 2rem;
+  padding: 0.65rem 2rem;
 }
 
 .nav-container {
@@ -22,15 +26,10 @@
 }
 
 .navbar.scrolled .nav-container {
-  background: rgba(8, 8, 26, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 0.55rem 1.5rem;
-  box-shadow:
-    0 4px 32px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(139, 92, 246, 0.08);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .nav-logo {
@@ -182,10 +181,10 @@
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 1rem 1rem;
+    padding: 0.75rem 1rem;
   }
   .navbar.scrolled {
-    padding: 0.6rem 1rem;
+    padding: 0.55rem 1rem;
   }
   .nav-logo {
     font-size: 1.3rem;

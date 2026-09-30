@@ -1,6 +1,7 @@
 import vantageScreenshot from "../assets/Vantage/ScreenShot Tool -20260925173620.png";
 import criticScreenshot from "../assets/the critic/screenshot-2026-09-26-140406.png";
 import proVaScreenshot from "../assets/Pro-VA/ScreenShot Tool -20260925173600.png";
+import ubmaProject from "../assets/UBMA/UBMA_PROJECT.png";
 
 const caseStudies = [
   {
@@ -67,7 +68,8 @@ const caseStudies = [
     built: "Ongoing website management and end-to-end social media handling: content updates, planning, scheduling, and publishing, plus remote admin support for the organization's online presence.",
     tools: ["Website CMS", "Canva", "Google Workspace", "Social media scheduling"],
     result: "The website stays accurate and fully functional, and social content is planned and published on a regular schedule to grow engagement.",
-    mediaLabel: "An approved website or social media screenshot is not available.",
+    image: ubmaProject,
+    imageAlt: "UBMA Islamic Blind School Project website homepage",
     link: "https://ubma.org",
   },
 ];
