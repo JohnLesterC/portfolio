@@ -419,15 +419,38 @@ img {
 .case-study-media {
   align-self: start;
   overflow: hidden;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 16 / 10;
   background-color: var(--surface-2);
   border: 1px solid var(--border);
+}
+
+.case-study-gallery {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  background: var(--surface-2);
+}
+
+.case-study-gallery.single {
+  display: block;
+  padding: 0;
 }
 
 .case-study-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  min-width: 0;
+  min-height: 0;
+  background: var(--surface);
+}
+
+.case-study-gallery .featured {
+  grid-row: 1 / -1;
 }
 
 .case-study-placeholder {

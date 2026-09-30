@@ -1,6 +1,12 @@
 import vantageScreenshot from "../assets/Vantage/ScreenShot Tool -20260925173620.png";
+import vantageScreenshotTwo from "../assets/Vantage/ScreenShot Tool -20260925173650.png";
+import vantageScreenshotThree from "../assets/Vantage/ScreenShot Tool -20260925173701.png";
 import criticScreenshot from "../assets/the critic/screenshot-2026-09-26-140406.png";
+import criticScreenshotTwo from "../assets/the critic/screenshot-2026-09-26-141000.png";
+import criticScreenshotThree from "../assets/the critic/screenshot-2026-09-26-141449.png";
 import proVaScreenshot from "../assets/Pro-VA/ScreenShot Tool -20260925173600.png";
+import proVaScreenshotTwo from "../assets/Pro-VA/screenshot-2026-09-26-151253.png";
+import proVaScreenshotThree from "../assets/Pro-VA/screenshot-2026-09-26-151351.png";
 import ubmaProject from "../assets/UBMA/UBMA_PROJECT.png";
 
 const caseStudies = [
@@ -32,8 +38,11 @@ const caseStudies = [
     built: "A financial management app built end to end on Base44, with clear categorization, organized data views, and automated workflows for repetitive data entry.",
     tools: ["Base44", "AI workflows"],
     result: "A working app you can try yourself in the live demo.",
-    image: vantageScreenshot,
-    imageAlt: "Vantage financial management app dashboard",
+    images: [
+      { src: vantageScreenshot, alt: "Vantage financial management app dashboard" },
+      { src: vantageScreenshotTwo, alt: "Vantage financial management app money flow view" },
+      { src: vantageScreenshotThree, alt: "Vantage financial management app data view" },
+    ],
     link: "https://utopian-vantage-money-flow.base44.app/demo",
   },
   {
@@ -44,8 +53,11 @@ const caseStudies = [
     built: "A focused web experience with structured content, responsive layouts, and a polished visual interface.",
     tools: ["React", "CSS", "Responsive design"],
     result: "A working project that presents its content clearly across desktop and mobile screens.",
-    image: criticScreenshot,
-    imageAlt: "The Critic project interface",
+    images: [
+      { src: criticScreenshot, alt: "The Critic project interface" },
+      { src: criticScreenshotTwo, alt: "The Critic project content view" },
+      { src: criticScreenshotThree, alt: "The Critic project detail view" },
+    ],
     link: "https://aurelion-copy-6ee5c53f.base44.app/",
   },
   {
@@ -56,8 +68,11 @@ const caseStudies = [
     built: "A responsive project website with organized service content and a clear path for prospective clients.",
     tools: ["React", "CSS", "Responsive design"],
     result: "A working project that makes the service easier to understand and contact.",
-    image: proVaScreenshot,
-    imageAlt: "Pro-VA project interface",
+    images: [
+      { src: proVaScreenshot, alt: "Pro-VA project interface" },
+      { src: proVaScreenshotTwo, alt: "Pro-VA project service view" },
+      { src: proVaScreenshotThree, alt: "Pro-VA project contact view" },
+    ],
     link: "https://vigorous-va-track-flow.base44.app/demo",
   },
   {
@@ -68,22 +83,26 @@ const caseStudies = [
     built: "Ongoing website management and end-to-end social media handling: content updates, planning, scheduling, and publishing, plus remote admin support for the organization's online presence.",
     tools: ["Website CMS", "Canva", "Google Workspace", "Social media scheduling"],
     result: "The website stays accurate and fully functional, and social content is planned and published on a regular schedule to grow engagement.",
-    image: ubmaProject,
-    imageAlt: "UBMA Islamic Blind School Project website homepage",
+    images: [{ src: ubmaProject, alt: "UBMA Islamic Blind School Project website homepage" }],
     link: "https://ubma.org",
   },
 ];
 
 function ProjectMedia({ study }) {
-  if (study.image) {
+  if (study.images?.length) {
     return (
-      <img
-        className="case-study-image"
-        src={study.image}
-        alt={study.imageAlt}
-        loading="lazy"
-        decoding="async"
-      />
+      <div className={`case-study-gallery ${study.images.length === 1 ? "single" : ""}`}>
+        {study.images.slice(0, 3).map((image, index) => (
+          <img
+            className={index === 0 ? "case-study-image featured" : "case-study-image"}
+            key={image.src}
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
+      </div>
     );
   }
 
