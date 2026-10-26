@@ -6,34 +6,35 @@ export default function Hero() {
     <section className="hero-section" id="hero">
       <div className="hero-layout">
         <div className="hero-main-content">
-          <div className="hero-eyebrow">
+          <div className="hero-eyebrow hero-availability">
             <span className="status-dot" />
-            <span>Freelance developer · Philippines · Remote</span>
+            <span>Available for new projects &amp; contracts</span>
           </div>
+          <p className="hero-role">AI-Assisted Full-Stack Developer <span>·</span> Automation Specialist</p>
 
-          <h1 className="hero-headline">I build business systems and automations</h1>
+          <h1 className="hero-headline">
+            Custom business systems that <span className="cyan-text">eliminate manual work.</span>
+          </h1>
 
           <p className="hero-subtitle">
-            I help small businesses and growing teams simplify operations with
-            custom apps, connected workflows, and useful AI.
+            I design and build full-stack web applications, internal inventory
+            and finance tools, and end-to-end workflow automations for growing
+            businesses in Australia, the UK, and worldwide.
           </p>
 
           <div className="hero-ctas">
             <a href="#projects" className="button button-primary">
-              View my work
+              Explore case studies <span aria-hidden="true">↓</span>
             </a>
             <a href="#contact" className="button button-secondary">
-              Contact me
+              Get in touch <span aria-hidden="true">↗</span>
             </a>
           </div>
 
-          <div className="hero-social-links" aria-label="Professional profiles">
-            <a href="https://www.linkedin.com/in/john-lester-camit" target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-            <a href="https://github.com/JohnLesterC" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
+          <div className="hero-proof-row" aria-label="Professional highlights">
+            <span>Remote partner for teams in 🇦🇺 Australia &amp; 🇬🇧 United Kingdom</span>
+            <span>AI-assisted full-stack</span>
+            <span>End-to-end delivery</span>
           </div>
         </div>
 
@@ -44,7 +45,12 @@ export default function Hero() {
             alt="John Lester Camit"
             fetchPriority="high"
           />
-          <p className="hero-location">Working remotely with clients in Australia and the UK</p>
+          <div className="hero-profile-card">
+            <span className="hero-profile-label">INDEPENDENT DEVELOPER</span>
+            <strong>John Lester Camit</strong>
+            <span>FiLDEV · Calamba City, Philippines</span>
+            <span className="hero-profile-status"><i /> Remote worldwide · AU/UK hours</span>
+          </div>
         </div>
       </div>
     </section>

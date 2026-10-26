@@ -10,6 +10,7 @@ const contactSchema = new mongoose.Schema(
       lowercase: true,
       match: [/^\S+@\S+\.\S+$/, 'Invalid email address'],
     },
+    projectType: { type: String, trim: true, maxlength: 100 },
     message: { type: String, required: true, trim: true, maxlength: 2000 },
   },
   { timestamps: true }

@@ -4,9 +4,8 @@ import "./Navbar.css";
 const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#projects", label: "Case studies" },
-  { href: "#process", label: "How I work" },
-  { href: "#skills", label: "Skills" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#automations", label: "Automations" },
+  { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -25,8 +24,10 @@ export default function Navbar({ theme, toggleTheme }) {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`} aria-label="Primary navigation" onKeyDown={(event) => event.key === "Escape" && setMenuOpen(false)}>
       <div className="nav-container">
-        <a href="#hero" className="nav-logo">
-          JL<span className="accent">.</span>
+        <a href="#hero" className="nav-logo" aria-label="John Lester Camit, home">
+          <span className="nav-monogram">JL</span>
+          <span className="nav-name">John Lester Camit</span>
+          <span className="nav-availability"><i /> Available</span>
         </a>
         <div className="nav-right">
           <button
@@ -86,7 +87,15 @@ export default function Navbar({ theme, toggleTheme }) {
               </a>
             </li>
           ))}
+          <li className="nav-mobile-cta">
+            <a href="https://calendly.com/johnlestercamit/let-s-meet" target="_blank" rel="noopener noreferrer" onClick={handleNavClick}>
+              Book an intro call <span aria-hidden="true">↗</span>
+            </a>
+          </li>
         </ul>
+        <a className="nav-cta" href="https://calendly.com/johnlestercamit/let-s-meet" target="_blank" rel="noopener noreferrer">
+          Book an intro call <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </nav>
   );

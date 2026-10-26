@@ -3,6 +3,26 @@ import "./Experience.css";
 
 const experiences = [
   {
+    id: "us-child-center",
+    tabLabel: "US Child Center",
+    company: "Confidential US Child Center",
+    role: "Full-Time IT Developer",
+    period: "Oct 2026 – Present",
+    statusBadge: "Oct 2026 – Present",
+    codeFilename: "child-center-ops.ts",
+    codeSnippet: `const currentRole = {
+  employer:  "Confidential US Child Center",
+  role:      "Full-Time IT Developer",
+  period:    "Oct 2026 – Present",
+  focus:     ["IT Development", "Operations Automation"],
+}`,
+    highlights: [
+      "Developing automation to support the child center's day-to-day operations",
+    ],
+    tags: ["IT Development", "Operations Automation", "Child Care"],
+    roleTypeQuote: ["Full-time", "IT Developer"],
+  },
+  {
     id: "australian-client",
     tabLabel: "Australian Hospitality/Retail Client",
     company: "Australian Hospitality/Food Retail Client",

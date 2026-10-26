@@ -13,30 +13,35 @@ import ubmaProject from "../assets/UBMA/UBMA_PROJECT.png";
 const caseStudies = [
   {
     number: "01",
+    category: "systems",
     name: "Hospitality operations platform",
     label: "Multi-location hospitality group · Client name withheld",
     problem: "Stock counts, invoice checks, and cash-register audits happened separately across several locations, which made them hard to keep consistent and easy to lose track of.",
-    built: "A centralized operations app for daily stock counts, invoice auditing, and daily cash-register audits across all locations, plus AI workflows and questionnaires that handle routine tasks, store inquiries, and admin work.",
-    tools: ["Base44", "AI workflows", "Kajabi", "Squarespace"],
-    result: "One system now covers stock, invoice, and cash audits for every location. Email bookings and daily stock reports run automatically, reducing manual admin work and speeding up client response times.",
+    built: "A centralized operations app for daily stock counts, invoice auditing, and cash-register audits across all locations, with a Square API integration and AI-assisted workflows for routine tasks, store inquiries, and admin work.",
+    tools: ["Base44", "Square API", "AI workflows", "Kajabi", "Squarespace"],
+    result: "One system now covers stock, invoice, and cash audits for every location. Email bookings and daily stock reports run automatically, cutting manual admin by hours each week and speeding up client response times.",
     mediaLabel: "Screenshots withheld because client permission was not granted.",
+    nda: true,
   },
   {
     number: "02",
+    category: "automation",
     name: "Daily Stock Flow",
     label: "Inventory and sales tracking · NDA",
-    problem: "The business needed a clearer, more reliable way to see what was in stock and what had been sold, without relying on manual tracking.",
-    built: "An inventory and sales tracking system integrated with the Square API and workflow automation.",
-    tools: ["Square API", "Workflow automation"],
-    result: "Inventory and sales data are connected in one system instead of being tracked separately. Client details are limited by NDA.",
+    problem: "Multi-store retail teams needed a reliable, up-to-date view of inventory and sales without relying on manual tracking.",
+    built: "A real-time inventory tracking system connected to Square, with discrepancy alerts and workflow automation.",
+    tools: ["Square API", "Real-time inventory", "Discrepancy alerts"],
+    result: "Inventory and sales data stay connected across stores, with discrepancies flagged for follow-up. Client details are limited by NDA.",
     mediaLabel: "Screenshots withheld because client permission was not granted.",
+    nda: true,
   },
   {
     number: "03",
+    category: "systems",
     name: "Vantage",
     label: "Financial management app",
     problem: "Tracking personal or business money flow across spreadsheets and notes is scattered, and repetitive data entry is slow.",
-    built: "A financial management app built end to end on Base44, with clear categorization, organized data views, and automated workflows for repetitive data entry.",
+    built: "An end-to-end financial management and invoicing web application built on Base44, with structured data categorization, organized views, and automated workflows for repetitive data entry.",
     tools: ["Base44", "AI workflows"],
     result: "A working app you can try yourself in the live demo.",
     images: [
@@ -48,10 +53,11 @@ const caseStudies = [
   },
   {
     number: "04",
+    category: "web",
     name: "The Critic",
     label: "Web project",
-    problem: "A project interface needed a clear way to organize content and guide visitors through its main experience.",
-    built: "A focused web experience with structured content, responsive layouts, and a polished visual interface.",
+    problem: "Readers needed a clear, guided way to explore a content-rich publication across devices.",
+    built: "A content-rich web application with structured editorial content, responsive layouts, and a guided reader experience.",
     tools: ["React", "CSS", "Responsive design"],
     result: "A working project that presents its content clearly across desktop and mobile screens.",
     images: [
@@ -63,12 +69,13 @@ const caseStudies = [
   },
   {
     number: "05",
-    name: "Pro-VA",
-    label: "Virtual assistant platform",
-    problem: "A virtual assistant service needed a professional online presence that clearly communicated its offer and supported client inquiries.",
-    built: "A responsive project website with organized service content and a clear path for prospective clients.",
-    tools: ["React", "CSS", "Responsive design"],
-    result: "A working project that makes the service easier to understand and contact.",
+    category: "automation",
+    name: "Pro-VA & workflow automations",
+    label: "Virtual assistant platform · Workflow automation",
+    problem: "Bookings, email notifications, and CRM records needed to stay in sync without repeated manual updates.",
+    built: "Custom automation pipelines connecting calendar bookings to email notifications and CRM records, paired with a responsive service platform.",
+    tools: ["Calendar integrations", "Email workflows", "CRM", "Webhooks"],
+    result: "Booking and follow-up information flows between tools automatically, reducing repetitive admin and keeping client records current.",
     images: [
       { src: proVaScreenshot, alt: "Pro-VA project interface" },
       { src: proVaScreenshotTwo, alt: "Pro-VA project service view" },
@@ -78,6 +85,7 @@ const caseStudies = [
   },
   {
     number: "06",
+    category: "web",
     name: "UBMA.org",
     label: "Website and social media management",
     problem: "A UK-based organization needed its website kept accurate and current, and its social media run consistently, without a dedicated in-house person.",
@@ -87,6 +95,13 @@ const caseStudies = [
     images: [{ src: ubmaProject, alt: "UBMA Islamic Blind School Project website homepage" }],
     link: "https://ubma.org",
   },
+];
+
+const projectFilters = [
+  { value: "all", label: "All work" },
+  { value: "systems", label: "Systems & apps" },
+  { value: "automation", label: "Automations" },
+  { value: "web", label: "Web platforms" },
 ];
 
 function ProjectMedia({ study, onOpen }) {
@@ -123,8 +138,12 @@ function ProjectMedia({ study, onOpen }) {
 
 export default function Projects() {
   const [viewer, setViewer] = useState(null);
+  const [selectedStudy, setSelectedStudy] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("all");
   const closeButtonRef = useRef(null);
   const lastTriggerRef = useRef(null);
+  const detailCloseRef = useRef(null);
+  const detailTriggerRef = useRef(null);
 
   useEffect(() => {
     if (!viewer) {
@@ -157,10 +176,30 @@ export default function Projects() {
     };
   }, [viewer]);
 
+  useEffect(() => {
+    if (!selectedStudy) {
+      detailTriggerRef.current?.focus();
+      return undefined;
+    }
+
+    detailCloseRef.current?.focus();
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setSelectedStudy(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedStudy]);
+
   const openViewer = (images, index, trigger) => {
     lastTriggerRef.current = trigger;
     setViewer({ images, index });
   };
+  const visibleStudies = caseStudies.filter((study) => activeFilter === "all" || study.category === activeFilter);
 
   return (
     <section className="portfolio-section case-studies-section" id="projects" aria-labelledby="projects-title">
@@ -168,12 +207,26 @@ export default function Projects() {
         <div className="section-heading case-studies-heading">
           <div>
             <p className="section-kicker">Selected work</p>
-            <h2 id="projects-title">Business problems, made more manageable.</h2>
+            <h2 id="projects-title">Real work. Thoughtful systems. Better flow.</h2>
           </div>
-          <p>Six projects across operations, finance, inventory, and web management.</p>
+          <p>Case studies across operations, finance, inventory, workflow automation, and web platforms.</p>
         </div>
+        <div className="project-filters" role="group" aria-label="Filter case studies">
+          {projectFilters.map((filter) => (
+            <button
+              type="button"
+              className={activeFilter === filter.value ? "active" : ""}
+              aria-pressed={activeFilter === filter.value}
+              key={filter.value}
+              onClick={() => setActiveFilter(filter.value)}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+        <p className="nda-note"><span aria-hidden="true">◈</span> Some enterprise work is covered by NDA. Private client screens and source code are not shared; summaries protect confidential details.</p>
         <div className="case-study-list">
-          {caseStudies.map((study) => (
+          {visibleStudies.map((study) => (
             <article className="case-study" key={study.number}>
               <div className="case-study-media">
                 <ProjectMedia study={study} onOpen={openViewer} />
@@ -186,6 +239,7 @@ export default function Projects() {
                     <p>{study.label}</p>
                   </div>
                 </div>
+                {study.nda && <span className="case-study-nda">NDA · Client details withheld</span>}
                 <dl className="case-study-details">
                   <div>
                     <dt>Problem</dt>
@@ -211,11 +265,40 @@ export default function Projects() {
                     Open live demo <span aria-hidden="true">↗</span>
                   </a>
                 )}
+                <button
+                  className="case-study-detail-button"
+                  type="button"
+                  onClick={(event) => {
+                    detailTriggerRef.current = event.currentTarget;
+                    setSelectedStudy(study);
+                  }}
+                >
+                  Read case study <span aria-hidden="true">↗</span>
+                </button>
               </div>
             </article>
           ))}
         </div>
       </div>
+      {selectedStudy && (
+        <div className="case-study-dialog-backdrop" onMouseDown={(event) => event.target === event.currentTarget && setSelectedStudy(null)}>
+          <section className="case-study-dialog" role="dialog" aria-modal="true" aria-labelledby="case-study-dialog-title">
+            <div className="case-study-dialog-top">
+              <span className="case-study-dialog-label">{selectedStudy.label}</span>
+              <button ref={detailCloseRef} type="button" className="image-viewer-close" onClick={() => setSelectedStudy(null)} aria-label="Close case study">×</button>
+            </div>
+            <h2 id="case-study-dialog-title">{selectedStudy.name}</h2>
+            {selectedStudy.nda && <span className="case-study-nda">NDA · Client details withheld</span>}
+            <dl className="case-study-details case-study-dialog-details">
+              <div><dt>Problem</dt><dd>{selectedStudy.problem}</dd></div>
+              <div><dt>Solution</dt><dd>{selectedStudy.built}</dd></div>
+              <div><dt>Impact</dt><dd>{selectedStudy.result}</dd></div>
+              <div><dt>Tools & platforms</dt><dd className="case-study-tools">{selectedStudy.tools.map((tool) => <span key={tool}>{tool}</span>)}</dd></div>
+            </dl>
+            {selectedStudy.link && <a className="button button-primary" href={selectedStudy.link} target="_blank" rel="noopener noreferrer">View live project ↗</a>}
+          </section>
+        </div>
+      )}
       {viewer && (
         <div className="image-viewer" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setViewer(null)}>
           <div className="image-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="image-viewer-title">

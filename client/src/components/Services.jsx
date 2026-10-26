@@ -3,21 +3,24 @@
 const services = [
   {
     number: "01",
-    title: "Web App Development",
+    title: "Custom business systems & web apps",
     description:
-      "Custom business applications for inventory, invoicing, cash audits, financial tracking, and operational workflows that need a better fit.",
+      "Tailored portals for inventory tracking, invoicing, cash audits, and operational dashboards. Built around the way your team actually works.",
+    stack: "React · Node.js · MERN · Cloud DBs",
   },
   {
     number: "02",
-    title: "Workflow & Business Automation",
+    title: "Workflow automation & integrations",
     description:
-      "Connect business tools and simplify repeat work across bookings, email, inventory, sales tracking, reporting, and AI-assisted workflows.",
+      "Connect disconnected tools across bookings, email pipelines, Square, webhooks, and AI-assisted workflows to eliminate repetitive data entry.",
+    stack: "Square API · Zapier · Make · n8n",
   },
   {
     number: "03",
-    title: "Website Build & Maintenance",
+    title: "Web platform builds & CMS",
     description:
-      "Build, improve, and maintain business websites on Kajabi, Squarespace, Wix, and WordPress.",
+      "High-performance business websites and membership platforms with clean SEO and fast load times, built on the platform that fits your team.",
+    stack: "Wix Studio · Squarespace · Kajabi · WordPress",
   },
 ];
 
@@ -26,15 +29,20 @@ export default function Services() {
     <section className="portfolio-section services-section" id="services" aria-labelledby="services-title">
       <div className="section-inner">
         <div className="section-heading">
-          <p className="section-kicker">What I do</p>
-          <h2 id="services-title">Systems that make work easier.</h2>
+          <p className="section-kicker">Services</p>
+          <h2 id="services-title">Less busywork. Better business systems.</h2>
+          <p className="section-lede">Practical software and connected workflows, designed around the bottlenecks your team feels every day.</p>
         </div>
         <div className="service-list">
           {services.map((service) => (
-            <article className="service-row" key={service.number}>
-              <span className="service-number">{service.number}</span>
+            <article className="service-row" id={service.number === "02" ? "automations" : undefined} key={service.number}>
+              <div className="service-card-top">
+                <span className="service-number">{service.number}</span>
+                <span className="service-arrow" aria-hidden="true">↗</span>
+              </div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
+              <span className="service-stack">{service.stack}</span>
             </article>
           ))}
         </div>
