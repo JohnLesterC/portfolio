@@ -1,5 +1,4 @@
 import "./Vision.css";
-import lesterPhoto from "../assets/lester.avif";
 
 export default function Vision() {
   return (
@@ -15,23 +14,6 @@ export default function Vision() {
         </div>
 
         <div className="vision-bento">
-          {/* Cinematic photo card */}
-          <div className="vision-photo-card">
-            <div className="vision-photo-glow" />
-            <img
-              src={lesterPhoto}
-              alt="John Lester Camit"
-              className="vision-photo"
-            />
-            <div className="vision-photo-overlay" />
-            <div className="vision-name-badge">
-              <span className="vision-name">John Lester Camit</span>
-              <span className="vision-title-badge">
-                Developer &amp; AI Enthusiast
-              </span>
-            </div>
-          </div>
-
           {/* Manifesto panel */}
           <div className="vision-manifesto">
             <div className="vision-deco-quote">&ldquo;</div>
