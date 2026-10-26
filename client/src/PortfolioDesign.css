@@ -379,7 +379,7 @@ body {
   color: var(--accent);
 }
 
-.hero-portrait-wrap {
+.hero-profile-wrap {
   position: relative;
   width: min(100%, 330px);
   justify-self: end;
@@ -391,22 +391,15 @@ body {
   box-shadow: 0 0 80px rgba(14, 165, 233, 0.11), 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
-.hero-portrait {
-  width: 100%;
-  aspect-ratio: 0.86;
-  border-radius: 16px;
-  object-fit: cover;
-  object-position: center 30%;
-  filter: saturate(0.78);
-}
-
 .hero-profile-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin: 10px 0 0;
-  padding: 13px 13px 7px;
+  gap: 12px;
+  min-height: 244px;
+  justify-content: center;
+  margin: 0;
+  padding: 24px 20px;
 }
 
 .hero-profile-label {
@@ -417,7 +410,8 @@ body {
 }
 
 .hero-profile-card strong {
-  font-size: 1rem;
+  font-size: 1.55rem;
+  line-height: 1.25;
   letter-spacing: -0.025em;
 }
 
@@ -1585,14 +1579,9 @@ body {
     content: none;
   }
 
-  .hero-portrait-wrap {
+  .hero-profile-wrap {
     width: min(100%, 360px);
     justify-self: center;
-  }
-
-  .hero-portrait {
-    aspect-ratio: 1.15;
-    object-position: center 28%;
   }
 
   .portfolio-section,

@@ -1,5 +1,4 @@
 import "./Hero.css";
-import portrait from "../assets/lester.avif";
 
 export default function Hero() {
   return (
@@ -38,20 +37,14 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-portrait-wrap">
-          <img
-            className="hero-portrait"
-            src={portrait}
-            alt="John Lester Camit"
-            fetchPriority="high"
-          />
+        <aside className="hero-profile-wrap" aria-label="Remote availability">
           <div className="hero-profile-card">
-            <span className="hero-profile-label">INDEPENDENT DEVELOPER</span>
-            <strong>John Lester Camit</strong>
+            <span className="hero-profile-label">REMOTE DEVELOPMENT PARTNER</span>
+            <strong>Ideas into systems.<br />Busywork into workflows.</strong>
             <span>FiLDEV · Calamba City, Philippines</span>
             <span className="hero-profile-status"><i /> Remote worldwide · AU/UK hours</span>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   );
